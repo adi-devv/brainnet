@@ -22,26 +22,33 @@ Nothing here is proven. This is a working list of pointers and the approaches be
 | Predictive coding, forward-forward | Layer-local error signals instead of one global backward pass | Not started |
 | Closed-form memory writes | Write a fact straight into the weights with a rank-one solve (MEMIT/AlphaEdit style), no training loop | Idea only; still needs a few gradient steps to find the target value |
 
-## Findings (iterations 1-15, character-level code LM, test loss in nats/char, lower is better)
+Current direction and pass/kill bars: [PLAN.md](PLAN.md).
+
+## Findings (iterations 1-18, character-level code LM, test loss in nats/char, lower is better)
 
 All backprop-free rows use hand-written updates with grad mode off. Seed 0 unless noted.
 
 | Method | 1M chars | 6.2M chars | Renamed-identifier test | Time |
 |---|---|---|---|---|
-| Backprop GPT (baseline) | 2.330 | 1.329 / 1.352 (2 seeds) | 1.530 at 16M (gap 0.406) | ~181 s at 6.2M |
+| Backprop GPT (baseline) | 2.330 | 1.329 / 1.335 (2 seeds) | 1.667 at 6.2M (gap 0.339); 1.530 at 16M (gap 0.406) | ~181 s at 6.2M, 321 MB |
+| Backprop GPT, same one-pass windows as `local` (iter 18 control) | - | 1.341 | 1.686 at 6.2M (gap 0.346) | 181 s at 6.2M, 319 MB |
 | DFA stacked learner (iter 14: fixed causal EMAs, 6 lag lookups, random feedback) | 1.992 | 1.549 | 1.862 at 6.2M (gap 0.313) | 69.5 s at 6.2M (2.6x faster) |
-| Exact local gradient (iter 15 `local`) | 1.909 | not run | 2.154 at 1M (gap 0.245) | 8.5 s at 1M |
-| Count tables + learned pointer heads (iter 12) | 1.268 | **1.165** | 1.606 at 6.2M (gap 0.441) | 244 s at 6.2M |
-| Tables + local net (iter 15 `hybrid`) | 1.261 | not run | 1.620 at 1M (gap 0.359) | 101 s at 1M |
+| Exact layer-local gradient (iter 15 `local`) | 1.909 | 1.492 | 1.819 at 6.2M (gap 0.327) | 66-73 s at 6.2M, 105 MB |
+| `local` + suffix-match copy heads (iter 18) | - | 1.411 | 1.697 at 6.2M (gap 0.286) | 74.5 s at 6.2M, 103 MB |
+| Count tables + learned pointer heads (iter 12) | 1.268 | **1.165** | 1.606 at 6.2M (gap 0.441) | 244 s at 6.2M, ~1.9 GB |
+| Tables + local net (iter 15 `hybrid`) | 1.261 | 1.155 | 1.596 at 6.2M (gap 0.441) | 707 s at 6.2M, ~2 GB |
 
 Backprop at 16M chars: 1.124 / 1.139.
 
 What this says:
 - At equal data (6.2M), backprop-free tables beat backprop (1.165 vs 1.329). They are one-shot memories, so they copy repeated new names well (loss 3.2 on a repeat vs 5.9 on first sight).
-- The tables do not generalize across names: renamed gap 0.37-0.44, versus 0.31 for DFA and 0.41 for backprop at 16M.
+- The tables have a large renamed gap (0.44 at 6.2M), but their absolute renamed loss still beats backprop at equal data (1.606 vs 1.667). An earlier version of this note said they "do not generalize", which overstated it. They cost about 6x backprop's memory and more time.
 - The DFA net is about 2.6x cheaper per step than backprop but loses on quality at 6.2M. It wins only in the first ~1M chars.
 - Exact layer-local gradient beats random feedback at 1M (1.909 vs 1.992).
-- Adding the local net to the tables gains little at 1M (0.007 test, 0.015 renamed), below the pre-set bar for a full run.
-- Open: a rule that learns what tables cannot (cross-name generalization), noise-based local rules, prospective configuration.
+- Adding the local net to the tables gains little (0.010 test at 6.2M) and takes about 3x longer.
+- `local` is about 2.5x faster than backprop per char but worse at equal data (1.492 vs 1.329). More passes in equal time do not close it (2.5 passes, 163 s: 1.353 test, 1.720 renamed).
+- `local` does avoid backprop across layers, but it still uses the exact chain rule inside each layer. It also has no attention, so its speedup is partly from a smaller model.
+- Copy heads (iter 18) add 0.08 test at 2.4x backprop's speed. Renamed loss nearly reaches backprop on the same sampling (1.697 vs 1.686), and repeated new names are far cheaper (1.66 vs 5.38 nats). Test loss still misses (1.411 vs 1.341).
+- Open: see PLAN.md.
 
 Code is in `iterN.py`, briefs in `briefs/`, raw numbers in `results/`.

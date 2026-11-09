@@ -1,0 +1,128 @@
+{
+  "checks": {
+    "matches": true,
+    "gate_finite_difference": true,
+    "causality": true
+  },
+  "g": [
+    0.0019689358305186033,
+    0.3363027274608612,
+    0.6797093749046326
+  ],
+  "novel_first_loss": 5.68740257790095,
+  "novel_repeat_loss": 1.6551072808131986,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.492209017276764,
+  "renamed_loss_nocopy": 1.818974461555481,
+  "test_loss_nocopy_difference": 9.017276763945148e-06,
+  "mean_gate_weight_test": {
+    "net": 0.8584423065185547,
+    "L1": 0.01856069080531597,
+    "L2": 0.023124588653445244,
+    "L4": 0.026500748470425606,
+    "L8": 0.07337184250354767
+  },
+  "test_loss": 1.4111878833770752,
+  "renamed_loss": 1.697467586517334,
+  "renamed_gap": 0.28627970314025886,
+  "val_loss": 1.5625494527816772,
+  "train_seconds": 74.45694130000629,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 102.70703125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "novel_rule": "Q.novel: aligned changed targets; maximal ASCII runs; earlier complete run required for repeat",
+    "D": 256,
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "lr": 0.001,
+    "lr_schedule": "constant",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "local_rule": "unchanged iter15.Model(V, False).train(x,y,0)",
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "memory": "window-local",
+    "gate_shape": [
+      5,
+      15
+    ],
+    "gate_init": "zero",
+    "gate_lr": 0.01,
+    "gate_optimizer": "manual Adam",
+    "gate_betas": [
+      0.9,
+      0.999
+    ],
+    "gate_eps": 1e-08,
+    "gate_clip": null,
+    "gate_weight_decay": 0,
+    "gate_features": [
+      "bias",
+      "matched x4",
+      "log2(1+count)/7 x4",
+      "max proposal probability x4",
+      "net max probability",
+      "net entropy/log V"
+    ],
+    "probability_floor": 1e-06,
+    "floor_scope": "mixture log and target denominator; entropy log",
+    "gate_prediction": "same forward, before network update",
+    "copy_enabled": true,
+    "novel_copy_enabled": true,
+    "net_reference_test_loss": 1.4922
+  },
+  "pass": {
+    "test": false,
+    "renamed": false,
+    "train": true,
+    "peak": true,
+    "repeat_name": true
+  }
+}

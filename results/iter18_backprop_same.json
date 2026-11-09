@@ -1,0 +1,70 @@
+{
+  "params": 1230944,
+  "novel_first_loss": 5.709350819600685,
+  "novel_repeat_loss": 5.378565351441685,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss": 1.3406729159355164,
+  "renamed_loss": 1.6863437926769256,
+  "renamed_gap": 0.34567087674140917,
+  "val_loss": 1.4639611053466797,
+  "train_seconds": 181.36728349999612,
+  "chars": 6215398,
+  "steps": 759,
+  "peak_allocated_mib": 319.45361328125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "backprop_same",
+    "bs": 64,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "novel_rule": "Q.novel: aligned changed targets; maximal ASCII runs; earlier complete run required for repeat",
+    "baseline_cfg": {
+      "width": 128,
+      "layers": 6,
+      "heads": 4,
+      "block": 128,
+      "batch": 64,
+      "lr": 0.003,
+      "min_lr": 0.0003,
+      "wd": 0.01,
+      "warmup": 100,
+      "ffn_mult": 4
+    },
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "amp": "float16 + GradScaler",
+    "lr_schedule": "baseline warmup then cosine; true batch count",
+    "schedule_steps": 759,
+    "dropped_start_zero": true,
+    "dropped_chars": 128,
+    "ignore_index": -1
+  },
+  "pass": {
+    "test": false,
+    "renamed": false,
+    "train": false,
+    "peak": true,
+    "repeat_name": false
+  }
+}
