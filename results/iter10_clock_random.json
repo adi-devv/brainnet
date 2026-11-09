@@ -1,0 +1,90 @@
+{
+  "name": "clock_random",
+  "test_loss": 1.1929758653640747,
+  "renamed_loss": 1.6378865991830827,
+  "val_loss": 1.325825497150421,
+  "renamed_gap": 0.4449107338190079,
+  "train_seconds": 163.35945060000086,
+  "chars": 6215526,
+  "peak_allocated_mib": 1968.19873046875,
+  "hit_rate": {
+    "2": 0.48287109375000004,
+    "4": 0.32519140625,
+    "8": 0.19837890625000001,
+    "16": 0.065703125,
+    "32": 0.00790625
+  },
+  "fire_rate_A": 0.315609375,
+  "fire_rate_B": 0.17162890625,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": null,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "requested_chars": 6215526,
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "allocator_limit_gib": 2.7,
+    "inputs": 16,
+    "first_rows": [
+      1,
+      97,
+      4096,
+      16,
+      12
+    ],
+    "second_inputs": 5,
+    "variant": "clock_random",
+    "thresholds": [
+      1.0,
+      3.0
+    ],
+    "random_rates": [
+      0.317578125,
+      0.17491015625
+    ],
+    "random_key": "order-32 hash + salt",
+    "clock_entries": 8388608,
+    "clock_dtype": "int32",
+    "surprise": "pre-loop frozen highest-order slow; preceding context; chunks=1024; s[0]=inf",
+    "gap_buckets": [
+      "0",
+      "1",
+      "2",
+      "3-4",
+      "5-8",
+      "9+"
+    ],
+    "fifth_selector": "gap_bucket*2 + A3 hit; clock_off=0",
+    "fast_counts": "iter8 uint8, sub-batches of 32, j<t",
+    "probability_floor": 1e-06,
+    "batch_delta": "sum",
+    "evaluation_frozen": true,
+    "eval_windows": 2000,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Reference iter8 fast: test=1.1957, gap=0.4528; iter9 all: test=1.1843, gap=0.437.",
+      "Backprop at 16M chars: test=1.1238, gap=0.406.",
+      "clock_off within 0.005 of 1.1957, else comparison suspect.",
+      "Drop unless clock beats clock_off by >=0.03 test.",
+      "clock fire_rate_A <=0.70, else not sparse.",
+      "clock beats clock_random by >=0.01 test, else surprise is not what helps.",
+      "clock renamed_gap <0.43 means less name dependence."
+    ]
+  }
+}

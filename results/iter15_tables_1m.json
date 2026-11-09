@@ -1,0 +1,80 @@
+{
+  "novel_first_loss": 5.9772562938843805,
+  "novel_repeat_loss": 3.196101196936063,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss": 1.2676570067405701,
+  "renamed_loss": 1.634477599143982,
+  "renamed_gap": 0.3668205924034118,
+  "val_loss": 1.4240685667991637,
+  "g": [],
+  "train_seconds": 39.61382880000019,
+  "chars": 999424,
+  "steps": 8,
+  "peak_allocated_mib": 1916.89111328125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "variant": "tables",
+    "budget": 999424,
+    "smoke": false,
+    "bs": 976,
+    "net_bs": 64,
+    "T": 128,
+    "D": 256,
+    "layers": 3,
+    "lr": 0.001,
+    "table_lr": 0.0001,
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "allocator_limit_gib": 2.7,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "eval_windows": 2000,
+    "eval_chunk": 16,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "local_rule": "own CE with current R.T; no cross-layer derivative",
+    "prior": "fixed pre-batch tables.logprobs; before all batch writes",
+    "readout_init": "iter14",
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "embedding_width": 32,
+    "tables": "iter12 learned: bs976; output then base.write per position; lr1e-4; heads Adagrad lr0.2",
+    "table_batches": 8,
+    "novel_rule": "aligned changed targets; maximal ASCII runs over x[0]+y; repeat requires an earlier complete run; empty group=null",
+    "decision_rules": [
+      "References: backprop 1M 2.330; 6.2M 1.329; 16M 1.124 (renamed 1.530); iter14 dfa 1M 1.992, 6.2M 1.549; iter12 tables 6.2M 1.165 (renamed 1.606, gap 0.441).",
+      "local 1M <=1.962 (dfa -0.03): exact local gradient beats random feedback; run local --full.",
+      "hybrid beats tables at the same budget by >=0.02 test or >=0.04 renamed: net learns what tables miss; run hybrid --full.",
+      "hybrid --full test <1.124: beats backprop at 16M with 2.6x less data, without backprop.",
+      "Novel-name learning: (first - repeat) larger for hybrid than tables = better one-shot use of new names."
+    ]
+  }
+}

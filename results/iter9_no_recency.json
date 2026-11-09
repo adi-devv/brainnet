@@ -1,0 +1,81 @@
+{
+  "name": "no_recency",
+  "test_loss": 1.1914842375516892,
+  "renamed_loss": 1.638926515340805,
+  "val_loss": 1.328810621738434,
+  "renamed_gap": 0.4474422777891158,
+  "train_seconds": 112.93390890000228,
+  "chars": 6215526,
+  "peak_allocated_mib": 2038.11279296875,
+  "hit_rate": {
+    "2": 0.48287109375000004,
+    "4": 0.32519140625,
+    "8": 0.19837890625000001,
+    "16": 0.065703125,
+    "32": 0.00790625
+  },
+  "copy_rate": 0.7927734375,
+  "copy_accuracy": 0.488489775806849,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": null,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "requested_chars": 6215526,
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "allocator_limit_gib": 2.7,
+    "inputs": 16,
+    "first_rows": [
+      1,
+      97,
+      4096,
+      16,
+      17
+    ],
+    "second_inputs": 5,
+    "fast_counts": "iter8 uint8, sub-batches of 32, j < t",
+    "recency": "float32, 0.5 ** rank, sub-batches of 32",
+    "copy_buckets": [
+      "1",
+      "2",
+      "3",
+      "4-5",
+      "6-8",
+      "9-16",
+      "17-32",
+      "33+"
+    ],
+    "copy_selector": "0 if disabled/no match, else (bucket-1)*2+agree+1",
+    "fourth_selector": "iter8: 0 if no hit, else (longest-1)*3+clamp(distinct,1,3)",
+    "copy_confidence": "(hit+0.5)/(seen+1), 17 zero-initialized rows, pre-write updates",
+    "copy_ties": "most recent j",
+    "variant": "no_recency",
+    "probability_floor": 1e-06,
+    "batch_delta": "sum",
+    "evaluation_frozen": true,
+    "eval_windows": 2000,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Reference iter8 fast: test=1.1957, renamed=1.6485, gap=0.4528; backprop at 16M: test=1.1238, gap=0.406.",
+      "Stop further fast-memory tuning unless all test <= 1.165.",
+      "Name dependence fixed only if all renamed_gap < 0.43.",
+      "Keep recency only if all beats no_recency by >= 0.01 test; keep copy only if all beats no_copy by >= 0.01 test."
+    ]
+  }
+}

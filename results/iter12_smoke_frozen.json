@@ -1,0 +1,64 @@
+{
+  "test_loss": 3.707212448120117,
+  "renamed_loss": 3.8565926551818848,
+  "val_loss": 3.4612278938293457,
+  "renamed_gap": 0.14938020706176758,
+  "train_seconds": 3.731288400002086,
+  "chars": 128,
+  "peak_allocated_mib": 1721.306640625,
+  "head1_null_mean": 0.7228874564170837,
+  "head2_null_mean": 0.7228874564170837,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": 128,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "allocator_limit_gib": 2.7,
+    "variant": "frozen",
+    "clock_variant": "clock",
+    "inputs": 18,
+    "first_rows": [
+      1,
+      97,
+      4096,
+      16,
+      12,
+      16
+    ],
+    "second_inputs": 6,
+    "head_rows": [
+      1792,
+      448
+    ],
+    "head_lr": 0.2,
+    "head_init": -5.0,
+    "null_init": 0.0,
+    "adagrad_init": 1e-08,
+    "batch_delta": "sum; per position",
+    "probability_floor": 1e-06,
+    "fallback": "ps[4]",
+    "frozen": true,
+    "evaluation_frozen": true,
+    "eval_chunk": 1024,
+    "eval_windows": 2,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Reference iter10 clock: test=1.1711, renamed=1.6269, gap=0.4559.",
+      "Backprop 16M: test=1.1238, renamed=1.5298, gap=0.406.",
+      "learned must beat frozen by >=0.01 renamed, else local rule is not learning.",
+      "learned renamed<=1.58 and gap<0.43: name dependence improved; continue.",
+      "learned test<=1.16: continue.",
+      "pure: report only."
+    ],
+    "smoke": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "fast",
+  "test_loss": 1.1957228944301606,
+  "renamed_loss": 1.6485135732889176,
+  "val_loss": 1.3284414563179017,
+  "renamed_gap": 0.452790678858757,
+  "train_seconds": 99.76274890000059,
+  "chars": 6215526,
+  "peak_allocated_mib": 1577.19140625,
+  "hit_rate": {
+    "2": 0.48287109375000004,
+    "4": 0.32519140625,
+    "8": 0.19837890625000001,
+    "16": 0.065703125,
+    "32": 0.00790625
+  },
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": null,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "requested_chars": 6215526,
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "allocator_limit_gib": 2.7,
+    "fast_counts": "uint8, sub-batches of 32, j < t",
+    "fast_off": false,
+    "inputs": 10,
+    "first_rows": [
+      1,
+      97,
+      4096,
+      16
+    ],
+    "second_inputs": 4,
+    "fourth_selector": "0 if no hit, else (longest-1)*3 + clamp(distinct,1,3)",
+    "probability_floor": 1e-06,
+    "batch_delta": "sum",
+    "evaluation_frozen": true,
+    "eval_windows": 2000,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Best: iter7 boost_flat test=1.2401; mix_full test=1.2528, renamed=1.7547, gap=0.502.",
+      "Backprop at 16M chars: test=1.1238, gap=0.406.",
+      "Drop fast unless test <= 1.195.",
+      "Name dependence fixed only if renamed_gap < 0.45.",
+      "Memory helps only if fast beats fast_off by >= 0.03 test nats."
+    ]
+  }
+}

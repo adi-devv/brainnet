@@ -1,0 +1,75 @@
+{
+  "test_loss": 1.5525112209320069,
+  "renamed_loss": 1.867016740322113,
+  "renamed_gap": 0.31450551939010607,
+  "val_loss": 1.719893798828125,
+  "per_layer_test_loss": [
+    1.7197354760169983,
+    1.585549819469452,
+    1.5673693704605103
+  ],
+  "g": [
+    -0.020575376227498055,
+    0.3347901999950409,
+    0.6978558897972107
+  ],
+  "train_seconds": 60.96250220000002,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 102.98583984375,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 16,
+    "T": 128,
+    "D": 256,
+    "embedding_width": 32,
+    "layers": 3,
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "lr": 0.001,
+    "budget": 16000000,
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip_norm": 1,
+    "feedback_std": 0.10206207261596577,
+    "feedback_fixed": true,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "variant": "dfa",
+    "smoke": false,
+    "eval_windows": 2000,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "local_rule": "per-layer CE; fixed feedback; no cross-layer derivative",
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "evaluation_frozen": true,
+    "decision_rules": [
+      "Backprop at 1M chars: test 2.330; iter12 pure at 6.2M: test 2.53, renamed 2.59, gap 0.061.",
+      "dfa test < 2.33: local rule learns representations at least as fast as backprop here; scale it.",
+      "dfa test <= shallow test - 0.03: depth helps without backprop; keep stacking.",
+      "Otherwise: the local rule cannot learn representations here; next is a different local rule or hybrid."
+    ]
+  }
+}

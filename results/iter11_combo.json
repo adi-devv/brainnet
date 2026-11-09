@@ -1,0 +1,104 @@
+{
+  "name": "combo",
+  "test_loss": 1.171914284825325,
+  "renamed_loss": 1.6252285027503968,
+  "val_loss": 1.3115931429862977,
+  "renamed_gap": 0.45331421792507176,
+  "train_seconds": 217.9669453000024,
+  "chars": 6215526,
+  "peak_allocated_mib": 2428.62109375,
+  "hit_rate": {
+    "2": 0.48287109375000004,
+    "4": 0.32519140625,
+    "8": 0.19837890625000001,
+    "16": 0.065703125,
+    "32": 0.00790625
+  },
+  "copy_rate": 0.7927734375,
+  "copy_accuracy": 0.488489775806849,
+  "fire_rate_A": 0.317578125,
+  "fire_rate_B": 0.17491015625,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": null,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "requested_chars": 6215526,
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "allocator_limit_gib": 2.7,
+    "inputs": 22,
+    "input_order": "iter9 all 16, A1 A2 A3 B1 B2 B3",
+    "first_rows": [
+      1,
+      97,
+      4096,
+      16,
+      17,
+      12
+    ],
+    "second_inputs": 6,
+    "variant": "combo",
+    "recency": true,
+    "copy": true,
+    "clock_entries": 8388608,
+    "clock_tables": 6,
+    "clock_dtype": "int32",
+    "thresholds": [
+      1.0,
+      3.0
+    ],
+    "surprise": "pre-loop frozen highest-order slow; preceding context; chunks=1024; s[0]=inf",
+    "clock_backoff": "ps[0]; independent A and B chains",
+    "sixth_selector": "gap_bucket*2 + A3 hit",
+    "gap_buckets": [
+      "0",
+      "1",
+      "2",
+      "3-4",
+      "5-8",
+      "9+"
+    ],
+    "fast_counts": "iter8 uint8, sub-batches of 32, j < t",
+    "recency_weights": "float32, 0.5 ** rank",
+    "copy_confidence": "(hit+0.5)/(seen+1), 17 zero-initialized rows, pre-write updates",
+    "copy_ties": "most recent j",
+    "copy_buckets": [
+      "1",
+      "2",
+      "3",
+      "4-5",
+      "6-8",
+      "9-16",
+      "17-32",
+      "33+"
+    ],
+    "copy_selector": "0 if no match, else bucket*2+agree+1",
+    "probability_floor": 1e-06,
+    "batch_delta": "sum",
+    "evaluation_frozen": true,
+    "eval_windows": 2000,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Reference iter9 all: test=1.1843, gap=0.4373; iter10 clock: test=1.1711, gap=0.4559.",
+      "Backprop at 16M chars: test=1.1238, gap=0.406.",
+      "combo test <= 1.160 means the two sets of inputs add up; above that they overlap and input stacking stops.",
+      "combo renamed_gap < 0.43 means name dependence improved."
+    ]
+  }
+}
