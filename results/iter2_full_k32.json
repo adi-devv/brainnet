@@ -1,0 +1,29 @@
+{
+ "name": "full_k32",
+ "test_loss": 2.145301170349121,
+ "train_seconds": 458.84724283218384,
+ "eval_seconds": 26.18419599533081,
+ "chars_per_sec": 2178.1192229273647,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "k": 32,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  1.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

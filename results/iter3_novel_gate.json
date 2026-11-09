@@ -1,0 +1,31 @@
+{
+ "name": "novel_gate",
+ "test_loss": 2.218674026489258,
+ "train_seconds": 282.1166181564331,
+ "eval_seconds": 36.11566090583801,
+ "chars_per_sec": 3542.591735754543,
+ "frac_skipped": 0.007014040087090164,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 1,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "novelty": true,
+  "gate": true,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

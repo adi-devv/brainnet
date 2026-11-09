@@ -1,0 +1,28 @@
+{
+ "name": "count_ngram",
+ "test_loss": 1.6727006511688232,
+ "train_seconds": 51.74802494049072,
+ "eval_seconds": 3.855229616165161,
+ "chars_per_sec": 19313.278161810413,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "ngram",
+  "surprise": false,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  0.0,
+  5.732504746447376e-07,
+  0.9999994039535522,
+  2.796235744582787e-22
+ ]
+}

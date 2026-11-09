@@ -1,0 +1,335 @@
+{
+  "name": "mix_psc",
+  "test_loss": 1.2432707179784774,
+  "renamed_loss": 1.7121170551776885,
+  "val_loss": 1.3900236420631409,
+  "fit_seconds": 46.13563709999835,
+  "train_seconds": 145.7787470000003,
+  "chars": 6215526,
+  "peak_allocated_mib": 1714.42626953125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "sampling": "one_pass",
+    "budget": null,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "fit_chars": 6215526,
+    "F": 65536,
+    "G": 4096,
+    "rank": 80,
+    "power_iterations": 1,
+    "retained_dimensions": [
+      1,
+      64
+    ],
+    "median_sample": 32768,
+    "bits": [
+      8,
+      12,
+      16,
+      20,
+      24
+    ],
+    "alpha": 0.5,
+    "exact_entries": 33554432,
+    "code_entries": 8388608,
+    "mixer": "mix_two_layer",
+    "layer1_inputs": 10,
+    "allocator_limit_gib": 2.7,
+    "decision_rules": [
+      "Reference mix_full: test=1.2528, renamed=1.7547, gap=0.502.",
+      "Drop unless mix_psc beats mix_full by >=0.05 test nats.",
+      "Learning helps only if mix_psc beats mix_rand by >=0.03 test nats.",
+      "A renamed_loss - test_loss below 0.502 means less dependence on memorised names."
+    ],
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "eval_windows": 2000,
+    "feature_context": "available tokens; training blocks include preceding char, pad V before block",
+    "whitening": "occurrence counts + 1, inverse square root; multiplicities retained",
+    "nearest_metric": "squared Euclidean"
+  },
+  "singular_values": [
+    14.46568489074707,
+    6.3677778244018555,
+    4.385247230529785,
+    3.460585594177246,
+    3.190380573272705,
+    3.0545449256896973,
+    3.0275769233703613,
+    2.983666181564331,
+    2.9457473754882812,
+    2.893315076828003,
+    2.878342390060425,
+    2.779259204864502,
+    2.706669807434082,
+    2.6856610774993896,
+    2.6432673931121826,
+    2.6348326206207275,
+    2.5803022384643555,
+    2.485347270965576,
+    2.458585500717163,
+    2.3900644779205322,
+    2.3484692573547363,
+    2.3137524127960205,
+    2.2676398754119873,
+    2.2358498573303223,
+    2.1936864852905273,
+    2.0963590145111084,
+    2.0502400398254395,
+    2.0255305767059326,
+    1.9970636367797852,
+    1.9073920249938965,
+    1.8955559730529785,
+    1.8634837865829468,
+    1.8507407903671265,
+    1.8269439935684204,
+    1.7912172079086304,
+    1.7886316776275635,
+    1.7748336791992188,
+    1.7203385829925537,
+    1.693445086479187,
+    1.6523411273956299,
+    1.6277984380722046,
+    1.6026787757873535,
+    1.5738260746002197,
+    1.5613160133361816,
+    1.529097557067871,
+    1.5239520072937012,
+    1.4965564012527466,
+    1.477484107017517,
+    1.4620052576065063,
+    1.4543449878692627,
+    1.429190993309021,
+    1.407349944114685,
+    1.3985928297042847,
+    1.3733705282211304,
+    1.3592751026153564,
+    1.3382583856582642,
+    1.334959864616394,
+    1.3155834674835205,
+    1.3018462657928467,
+    1.290771722793579,
+    1.285969614982605,
+    1.2458566427230835,
+    1.235413670539856,
+    1.228151559829712
+  ],
+  "sanity": [
+    {
+      "context": "lass _Feature:\n\n    def ",
+      "position": 2902,
+      "nearest": [
+        {
+          "position": 4802161,
+          "context": "s Untokenizer:\n\n    def "
+        },
+        {
+          "position": 1835729,
+          "context": "class _Unknown:\n    def "
+        },
+        {
+          "position": 5614653,
+          "context": "Event(object):\n\n    def "
+        },
+        {
+          "position": 5266406,
+          "context": "\nclass Feature:\n    def "
+        },
+        {
+          "position": 1047038,
+          "context": "\nclass Process:\n    def "
+        }
+      ]
+    },
+    {
+      "context": "     \"\"\"\n        return ",
+      "position": 3291,
+      "nearest": [
+        {
+          "position": 1530797,
+          "context": "     \"\"\"\n        return "
+        },
+        {
+          "position": 1231413,
+          "context": "     \"\"\"\n        return "
+        },
+        {
+          "position": 5101120,
+          "context": "     \"\"\"\n        return "
+        },
+        {
+          "position": 5719933,
+          "context": "     \"\"\"\n        return "
+        },
+        {
+          "position": 4983366,
+          "context": "     \"\"\"\n        return "
+        }
+      ]
+    },
+    {
+      "context": "ler_flag):\n        self.",
+      "position": 2981,
+      "nearest": [
+        {
+          "position": 6194533,
+          "context": "lf, line):\n        self."
+        },
+        {
+          "position": 6194370,
+          "context": "lf, line):\n        self."
+        },
+        {
+          "position": 1742777,
+          "context": "lf, file):\n        self."
+        },
+        {
+          "position": 734656,
+          "context": "lf, node):\n        self."
+        },
+        {
+          "position": 764877,
+          "context": "lf, agen):\n        self."
+        }
+      ]
+    },
+    {
+      "context": "is not\n    relevant for ",
+      "position": 8203,
+      "nearest": [
+        {
+          "position": 5777677,
+          "context": "\n        irrelevant for "
+        },
+        {
+          "position": 6104205,
+          "context": "tate  # column hint for "
+        },
+        {
+          "position": 5576329,
+          "context": "vides shared memory for "
+        },
+        {
+          "position": 869899,
+          "context": " # make local alias for "
+        },
+        {
+          "position": 5945483,
+          "context": "      current alias for "
+        }
+      ]
+    },
+    {
+      "context": "int(\"Hello world!\")\n\nif ",
+      "position": 5410,
+      "nearest": [
+        {
+          "position": 5604,
+          "context": "int(\"Hello world!\")\n\nif "
+        },
+        {
+          "position": 1607930,
+          "context": " descr, None, code)\n\nif "
+        },
+        {
+          "position": 1860351,
+          "context": "xec\")\n    dis(code)\n\nif "
+        },
+        {
+          "position": 1598250,
+          "context": "check_size(c_ulong)\n\nif "
+        },
+        {
+          "position": 6023417,
+          "context": "n doctest.testmod()\n\nif "
+        }
+      ]
+    },
+    {
+      "context": " from __future__ import ",
+      "position": 641,
+      "nearest": [
+        {
+          "position": 12161,
+          "context": "tearray)\n#       assert "
+        },
+        {
+          "position": 131969,
+          "context": "       if tzinfo is not "
+        },
+        {
+          "position": 11905,
+          "context": "re\n# required early but "
+        },
+        {
+          "position": 147329,
+          "context": "self):\n        \"Convert "
+        },
+        {
+          "position": 176385,
+          "context": "anged.\n\n    The inexact "
+        }
+      ]
+    },
+    {
+      "context": "ed.\n\nInstances of class ",
+      "position": 1208,
+      "nearest": [
+        {
+          "position": 4986843,
+          "context": ". The base filter class "
+        },
+        {
+          "position": 1987031,
+          "context": "\"\"\"Address parser class "
+        },
+        {
+          "position": 4384595,
+          "context": "attr.  Static and class "
+        },
+        {
+          "position": 3483449,
+          "context": "num member during class "
+        },
+        {
+          "position": 3525147,
+          "context": "ly created during class "
+        }
+      ]
+    },
+    {
+      "context": "orm:\n\n    FeatureName = ",
+      "position": 100,
+      "nearest": [
+        {
+          "position": 5058514,
+          "context": "    dirName, baseName = "
+        },
+        {
+          "position": 4970700,
+          "context": "        self.funcName = "
+        },
+        {
+          "position": 4971184,
+          "context": "     self.processName = "
+        },
+        {
+          "position": 4971234,
+          "context": "     self.processName = "
+        },
+        {
+          "position": 4970968,
+          "context": "      self.threadName = "
+        }
+      ]
+    }
+  ]
+}

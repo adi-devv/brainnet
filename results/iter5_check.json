@@ -1,0 +1,48 @@
+{
+  "name": "check",
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 64,
+    "T": 128,
+    "lr": 0.0003125,
+    "budget": null,
+    "sampling": "seeded_random_windows",
+    "val_start": 6215526,
+    "train_end": 6542659,
+    "count_entries": 33554432,
+    "count_dtype": "int32",
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "batch_delta": "sum",
+    "mixer": "mix_two_layer",
+    "probability_floor": 1e-06,
+    "decision_rules": [
+      "Drop Hebbian predictor unless mix_ngram_hebb beats mix_ngram by >=0.03 test nats.",
+      "mix_full must beat ppm_full on test, or nothing beyond a compressor.",
+      "renamed_loss - test_loss measures dependence on memorised names."
+    ],
+    "allocator_limit_gib": 2.7,
+    "hash": "rolling h*1000003+tok+1; Murmur3 finalizer; low 25 bits",
+    "count_normalizer": "sum of V read counts",
+    "collisions": "31-bit tag, replace on collision",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "requested_chars": 999424
+  },
+  "val_loss": 1.1816226997375487,
+  "test_loss": 1.3812313156127929,
+  "renamed_loss": 1.8179704849720002,
+  "chars": 999424,
+  "train_seconds": 173.024652600001,
+  "peak_allocated_mib": 1331.396484375
+}

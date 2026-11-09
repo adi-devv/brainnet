@@ -1,0 +1,30 @@
+{
+ "name": "surprise_gate",
+ "test_loss": 2.2870978775024415,
+ "train_seconds": 268.7541460990906,
+ "eval_seconds": 35.263132095336914,
+ "chars_per_sec": 3718.7296066178974,
+ "frac_skipped": 0.005436131211577869,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 1,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "gate": true,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

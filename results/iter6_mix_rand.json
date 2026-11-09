@@ -1,0 +1,59 @@
+{
+  "name": "mix_rand",
+  "test_loss": 1.2456467690467834,
+  "renamed_loss": 1.7150623930692672,
+  "val_loss": 1.3924029459953309,
+  "fit_seconds": 6.314598100001604,
+  "train_seconds": 142.38205499999822,
+  "chars": 6215526,
+  "peak_allocated_mib": 1706.30126953125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "sampling": "one_pass",
+    "budget": null,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "fit_chars": 6215526,
+    "F": 65536,
+    "G": 4096,
+    "rank": 80,
+    "power_iterations": 1,
+    "retained_dimensions": [
+      1,
+      64
+    ],
+    "median_sample": 32768,
+    "bits": [
+      8,
+      12,
+      16,
+      20,
+      24
+    ],
+    "alpha": 0.5,
+    "exact_entries": 33554432,
+    "code_entries": 8388608,
+    "mixer": "mix_two_layer",
+    "layer1_inputs": 10,
+    "allocator_limit_gib": 2.7,
+    "decision_rules": [
+      "Reference mix_full: test=1.2528, renamed=1.7547, gap=0.502.",
+      "Drop unless mix_psc beats mix_full by >=0.05 test nats.",
+      "Learning helps only if mix_psc beats mix_rand by >=0.03 test nats.",
+      "A renamed_loss - test_loss below 0.502 means less dependence on memorised names."
+    ],
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "eval_windows": 2000,
+    "feature_context": "available tokens; training blocks include preceding char, pad V before block",
+    "whitening": "occurrence counts + 1, inverse square root; multiplicities retained",
+    "nearest_metric": "squared Euclidean"
+  }
+}

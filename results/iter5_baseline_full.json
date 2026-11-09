@@ -1,0 +1,133 @@
+{
+  "name": "baseline_full",
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 64,
+    "T": 128,
+    "lr": null,
+    "budget": 16000000,
+    "sampling": "baseline locked sampler",
+    "val_start": 6215526,
+    "train_end": 6542659,
+    "count_entries": 33554432,
+    "count_dtype": "int32",
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "batch_delta": "sum",
+    "mixer": "mix_two_layer",
+    "probability_floor": 1e-06,
+    "decision_rules": [
+      "Drop Hebbian predictor unless mix_ngram_hebb beats mix_ngram by >=0.03 test nats.",
+      "mix_full must beat ppm_full on test, or nothing beyond a compressor.",
+      "renamed_loss - test_loss measures dependence on memorised names."
+    ],
+    "allocator_limit_gib": 2.7,
+    "hash": "rolling h*1000003+tok+1; Murmur3 finalizer; low 25 bits",
+    "count_normalizer": "sum of V read counts",
+    "collisions": "31-bit tag, replace on collision",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "baseline_cfg": {
+      "width": 128,
+      "layers": 6,
+      "heads": 4,
+      "block": 128,
+      "batch": 64,
+      "lr": 0.003,
+      "min_lr": 0.0003,
+      "wd": 0.01,
+      "warmup": 100,
+      "ffn_mult": 4
+    },
+    "requested_chars": 16000000
+  },
+  "seed": 0,
+  "test_loss": 1.12382887840271,
+  "curve": [
+    {
+      "chars": 1597440,
+      "train_loss": 1.9770008325576782,
+      "test_loss": 1.9222556610107422,
+      "elapsed_s": 46.65503120422363
+    },
+    {
+      "chars": 3194880,
+      "train_loss": 1.6302543878555298,
+      "test_loss": 1.6088402519226075,
+      "elapsed_s": 92.96842455863953
+    },
+    {
+      "chars": 4792320,
+      "train_loss": 1.2076560258865356,
+      "test_loss": 1.4493838539123536,
+      "elapsed_s": 139.27656292915344
+    },
+    {
+      "chars": 6389760,
+      "train_loss": 1.1591697931289673,
+      "test_loss": 1.302080665588379,
+      "elapsed_s": 185.58076286315918
+    },
+    {
+      "chars": 7987200,
+      "train_loss": 1.0062227249145508,
+      "test_loss": 1.2684104309082032,
+      "elapsed_s": 231.88827538490295
+    },
+    {
+      "chars": 9584640,
+      "train_loss": 1.0332067012786865,
+      "test_loss": 1.213504358291626,
+      "elapsed_s": 278.43231868743896
+    },
+    {
+      "chars": 11182080,
+      "train_loss": 0.8753015398979187,
+      "test_loss": 1.1898232898712158,
+      "elapsed_s": 324.9712882041931
+    },
+    {
+      "chars": 12779520,
+      "train_loss": 0.9030831456184387,
+      "test_loss": 1.1680781173706054,
+      "elapsed_s": 371.3004858493805
+    },
+    {
+      "chars": 14376960,
+      "train_loss": 0.792253851890564,
+      "test_loss": 1.130004919052124,
+      "elapsed_s": 417.62743282318115
+    },
+    {
+      "chars": 15974400,
+      "train_loss": 0.8819352984428406,
+      "test_loss": 1.1237814292907715,
+      "elapsed_s": 463.94588923454285
+    },
+    {
+      "chars": 15998976,
+      "train_loss": 0.8238174319267273,
+      "test_loss": 1.12382887840271,
+      "elapsed_s": 464.65600514411926
+    }
+  ],
+  "params": 1230944,
+  "train_seconds": 464.65600514411926,
+  "chars_per_sec": 34431.87179952125,
+  "peak_vram_mb": 321.4541015625,
+  "chars_trained": 15998976,
+  "val_loss": 1.059701180458069,
+  "renamed_loss": 1.529772233724594,
+  "chars": 15998976,
+  "peak_allocated_mib": 321.4541015625
+}

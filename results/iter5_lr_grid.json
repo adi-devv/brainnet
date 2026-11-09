@@ -1,0 +1,74 @@
+{
+  "name": "lr_grid",
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": null,
+    "budget": null,
+    "sampling": "seeded_random_windows",
+    "val_start": 6215526,
+    "train_end": 6215526,
+    "count_entries": 33554432,
+    "count_dtype": "int32",
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "batch_delta": "sum",
+    "mixer": "mix_two_layer",
+    "probability_floor": 1e-06,
+    "decision_rules": [
+      "Drop Hebbian predictor unless mix_ngram_hebb beats mix_ngram by >=0.03 test nats.",
+      "mix_full must beat ppm_full on test, or nothing beyond a compressor.",
+      "renamed_loss - test_loss measures dependence on memorised names."
+    ],
+    "allocator_limit_gib": 2.7,
+    "hash": "rolling h*1000003+tok+1; Murmur3 finalizer; low 25 bits",
+    "count_normalizer": "sum of V read counts",
+    "collisions": "31-bit tag, replace on collision",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "requested_chars": 999424
+  },
+  "grid": [
+    {
+      "lr": 3e-05,
+      "val_loss": 1.5891198749542237,
+      "train_seconds": 11.301079299999401,
+      "chars": 999424
+    },
+    {
+      "lr": 0.0001,
+      "val_loss": 1.5821732892990112,
+      "train_seconds": 10.593961800001125,
+      "chars": 999424
+    },
+    {
+      "lr": 0.0003,
+      "val_loss": 1.6024748678207397,
+      "train_seconds": 10.695630099999107,
+      "chars": 999424
+    },
+    {
+      "lr": 0.001,
+      "val_loss": 2.703392568588257,
+      "train_seconds": 10.931118099999367,
+      "chars": 999424
+    }
+  ],
+  "best_lr": 0.0001,
+  "val_loss": 1.5821732892990112,
+  "test_loss": null,
+  "chars": 3997696,
+  "train_seconds": 43.521789299999,
+  "peak_allocated_mib": 1348.10693359375
+}

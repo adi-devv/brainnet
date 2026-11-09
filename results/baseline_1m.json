@@ -1,0 +1,34 @@
+{
+ "budget_chars": 1000000,
+ "warmup": 12,
+ "mean_test_loss": 2.330250389099121,
+ "runs": [
+  {
+   "seed": 0,
+   "test_loss": 2.3737359313964843,
+   "params": 1230944,
+   "train_seconds": 29.329854249954224,
+   "chars_per_sec": 34075.3142338428,
+   "peak_vram_mb": 321.4541015625,
+   "chars_trained": 999424
+  },
+  {
+   "seed": 1,
+   "test_loss": 2.2948957214355468,
+   "params": 1230944,
+   "train_seconds": 29.204102754592896,
+   "chars_per_sec": 34222.040937135855,
+   "peak_vram_mb": 321.4541015625,
+   "chars_trained": 999424
+  },
+  {
+   "seed": 2,
+   "test_loss": 2.322119514465332,
+   "params": 1230944,
+   "train_seconds": 29.12593674659729,
+   "chars_per_sec": 34313.88348794516,
+   "peak_vram_mb": 321.4541015625,
+   "chars_trained": 999424
+  }
+ ]
+}

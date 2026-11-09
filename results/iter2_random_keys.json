@@ -1,0 +1,28 @@
+{
+ "name": "random_keys",
+ "test_loss": 2.2827621002197267,
+ "train_seconds": 230.78842949867249,
+ "eval_seconds": 23.614325046539307,
+ "chars_per_sec": 4330.477061484353,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "random",
+  "surprise": false,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  1.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

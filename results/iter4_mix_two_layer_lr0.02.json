@@ -1,0 +1,33 @@
+{
+  "name": "mix_two_layer",
+  "test_loss": 2.2206079864501955,
+  "train_seconds": 93.80617340000026,
+  "chars_per_sec": 10654.1388884753,
+  "settings": {
+    "seed": 0,
+    "batches": 122,
+    "bs": 64,
+    "T": 128,
+    "budget": 999424,
+    "threads": 2,
+    "interop_threads": 1,
+    "mode": "ngram",
+    "surprise": false,
+    "lens": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "lr": 0.02,
+    "initial_weight": "1/n_inputs",
+    "probability_floor": 1e-06,
+    "selector_pad": 96,
+    "hash_rows": 4096,
+    "selector_hash": "(previous * 1000003 + current) % 4096",
+    "batch_delta": "sum",
+    "local_losses": true,
+    "kill_rule": "mix_two_layer must beat hedge_recheck by >= 0.1"
+  }
+}

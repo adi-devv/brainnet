@@ -1,0 +1,193 @@
+{
+  "name": "boost",
+  "stages": [
+    {
+      "stage": 0,
+      "test_loss": 4.066634178161621,
+      "renamed_loss": 4.124265193939209,
+      "val_loss": 3.68088960647583,
+      "lam": null,
+      "eta": null,
+      "fit_seconds": 1.8201969000001554
+    },
+    {
+      "stage": 1,
+      "test_loss": 4.111775875091553,
+      "renamed_loss": 4.182790279388428,
+      "val_loss": 3.681713104248047,
+      "lam": 1.3015625000000002,
+      "eta": 1,
+      "fit_seconds": 0.06477900000027148
+    },
+    {
+      "stage": 2,
+      "test_loss": 4.171035289764404,
+      "renamed_loss": 4.257058143615723,
+      "val_loss": 3.70257306098938,
+      "lam": 1.128125,
+      "eta": 1,
+      "fit_seconds": 0.02437149999968824
+    },
+    {
+      "stage": 3,
+      "test_loss": 4.276372909545898,
+      "renamed_loss": 4.37487268447876,
+      "val_loss": 3.7680563926696777,
+      "lam": 1.1382812500000001,
+      "eta": 1,
+      "fit_seconds": 0.020266600000468316
+    }
+  ],
+  "test_loss": 4.276372909545898,
+  "renamed_loss": 4.37487268447876,
+  "val_loss": 3.7680563926696777,
+  "train_seconds": 1.9296140000005835,
+  "chars": 128,
+  "stage_chars": 64,
+  "peak_allocated_mib": 1336.25146484375,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "bs": 976,
+    "T": 128,
+    "lr": 0.0001,
+    "budget": 128,
+    "sampling": "one_pass",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "D": 64,
+    "binary_features": true,
+    "bias": 0,
+    "residual_targets": "predict-before-write; second half in pass order; CPU float32",
+    "feature_context": "iter6.features on original x windows; strictly before target",
+    "confidence_bins": 4,
+    "lam_multipliers": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "eta_grid": [
+      1,
+      2,
+      4
+    ],
+    "allocator_limit_gib": 2.7,
+    "count_entries": 33554432,
+    "eval_windows": 1,
+    "stage0_reference_checked": false,
+    "cholesky": [
+      {
+        "stage": 1,
+        "lam": 0.013015625,
+        "multiplier": 0.001,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          4.752715587615967,
+          7.277256965637207,
+          13.166213989257812
+        ]
+      },
+      {
+        "stage": 1,
+        "lam": 0.13015625,
+        "multiplier": 0.01,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.8516881465911865,
+          4.561314582824707,
+          6.835694313049316
+        ]
+      },
+      {
+        "stage": 1,
+        "lam": 1.3015625000000002,
+        "multiplier": 0.1,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.681713104248047,
+          3.816622018814087,
+          4.480006217956543
+        ]
+      },
+      {
+        "stage": 2,
+        "lam": 0.01128125,
+        "multiplier": 0.001,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          4.161938190460205,
+          5.602579116821289,
+          9.427238464355469
+        ]
+      },
+      {
+        "stage": 2,
+        "lam": 0.1128125,
+        "multiplier": 0.01,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.837730884552002,
+          4.40349006652832,
+          6.239776134490967
+        ]
+      },
+      {
+        "stage": 2,
+        "lam": 1.128125,
+        "multiplier": 0.1,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.70257306098938,
+          3.8249220848083496,
+          4.35524320602417
+        ]
+      },
+      {
+        "stage": 3,
+        "lam": 0.0113828125,
+        "multiplier": 0.001,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          4.311665058135986,
+          5.5859055519104,
+          8.994806289672852
+        ]
+      },
+      {
+        "stage": 3,
+        "lam": 0.113828125,
+        "multiplier": 0.01,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.9226558208465576,
+          4.384457111358643,
+          5.791709899902344
+        ]
+      },
+      {
+        "stage": 3,
+        "lam": 1.1382812500000001,
+        "multiplier": 0.1,
+        "cholesky_info": 0,
+        "val_losses_eta_1_2_4": [
+          3.7680563926696777,
+          3.8903801441192627,
+          4.292695999145508
+        ]
+      }
+    ],
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "decision_rules": [
+      "Reference mix_full: test=1.2528, renamed=1.7547, gap=0.502.",
+      "Backprop at 16M chars: test=1.1238, gap=0.406.",
+      "Drop boost unless final test beats 1.2528 by >=0.05.",
+      "Depth helps only if stage 3 improves test by >=0.02.",
+      "Crossing helps only if boost beats boost_flat by >=0.02.",
+      "A renamed gap below 0.502 means less dependence on memorised names."
+    ]
+  }
+}

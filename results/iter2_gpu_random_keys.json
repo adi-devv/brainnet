@@ -1,0 +1,30 @@
+{
+ "name": "random_keys",
+ "test_loss": 2.282762435913086,
+ "train_seconds": 9.20795750617981,
+ "eval_seconds": 1.5083022117614746,
+ "chars_per_sec": 108539.1629282877,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "random",
+  "surprise": false,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ],
+  "bs": 976,
+  "device": "cuda"
+ },
+ "mixing_weights": [
+  1.0,
+  3.2054088193568506e-32,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "name": "hebb_memory",
+ "test_loss": 1.973972297668457,
+ "train_seconds": 22.19965362548828,
+ "eval_seconds": 1.5087776184082031,
+ "chars_per_sec": 45019.801518548134,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "hebb",
+  "surprise": false,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ],
+  "bs": 976,
+  "device": "cuda"
+ },
+ "mixing_weights": [
+  0.1353520154953003,
+  0.8646479845046997,
+  5.555165484253084e-37,
+  0.0,
+  0.0
+ ]
+}

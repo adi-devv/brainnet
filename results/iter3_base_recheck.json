@@ -1,0 +1,29 @@
+{
+ "name": "base_recheck",
+ "test_loss": 2.24287833404541,
+ "train_seconds": 263.5271592140198,
+ "eval_seconds": 35.509272813797,
+ "chars_per_sec": 3792.4895596371234,
+ "frac_skipped": 0.0,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 1,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

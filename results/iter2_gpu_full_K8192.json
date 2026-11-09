@@ -1,0 +1,31 @@
+{
+ "name": "full_K8192",
+ "test_loss": 2.0237299194335936,
+ "train_seconds": 29.225499629974365,
+ "eval_seconds": 3.8363583087921143,
+ "chars_per_sec": 34196.98594219984,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "K": 8192,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ],
+  "bs": 976,
+  "device": "cuda"
+ },
+ "mixing_weights": [
+  3.0552166242044217e-25,
+  1.0,
+  1.142521809061971e-26,
+  0.0,
+  0.0
+ ]
+}

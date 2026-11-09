@@ -1,0 +1,30 @@
+{
+ "name": "novel_scale",
+ "test_loss": 2.2045906524658205,
+ "train_seconds": 279.31467747688293,
+ "eval_seconds": 35.745439529418945,
+ "chars_per_sec": 3578.129187581687,
+ "frac_skipped": 0.0,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 1,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "novelty": true,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

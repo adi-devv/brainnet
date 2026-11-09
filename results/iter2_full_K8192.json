@@ -1,0 +1,29 @@
+{
+ "name": "full_K8192",
+ "test_loss": 2.039881721496582,
+ "train_seconds": 557.5005292892456,
+ "eval_seconds": 46.74957728385925,
+ "chars_per_sec": 1792.6870872645811,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "K": 8192,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ]
+ },
+ "mixing_weights": [
+  0.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

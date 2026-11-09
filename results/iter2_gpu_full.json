@@ -1,0 +1,30 @@
+{
+ "name": "full",
+ "test_loss": 2.2008378219604494,
+ "train_seconds": 24.750324487686157,
+ "eval_seconds": 1.5136122703552246,
+ "chars_per_sec": 40380.238267067405,
+ "train_chars": 999424,
+ "seed": 0,
+ "threads": 2,
+ "settings": {
+  "mode": "hebb",
+  "surprise": true,
+  "lens": [
+   2,
+   4,
+   8,
+   16,
+   32
+  ],
+  "bs": 976,
+  "device": "cuda"
+ },
+ "mixing_weights": [
+  0.0002308368420926854,
+  0.9997691512107849,
+  1.364852485826594e-34,
+  0.0,
+  0.0
+ ]
+}
