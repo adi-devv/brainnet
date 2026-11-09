@@ -1,0 +1,193 @@
+{
+  "checks": {
+    "matches": true,
+    "gate_finite_difference": true,
+    "causality": true,
+    "initial_weights": true,
+    "initial_rng": true,
+    "initial_logits": true,
+    "input_blocks": true,
+    "no_autograd": true,
+    "layer1_finite_difference": true,
+    "layer2_finite_difference": true,
+    "local_fd_max_abs_error": {
+      "W1": {
+        "old": 2.490055058847196e-11,
+        "lag1": 5.98156281992647e-11,
+        "lag2": 6.597965430303956e-11
+      },
+      "W2": {
+        "old": 5.080800558922294e-11,
+        "lag1": 7.667460069638032e-11,
+        "lag2": 7.657306364504401e-11
+      }
+    },
+    "train_gradient": true,
+    "order_equals_batch": true,
+    "order_batches": 3,
+    "order_interleaved": true,
+    "order_events": [
+      "activate 0",
+      "update 0",
+      "activate 1",
+      "update 1",
+      "activate 2",
+      "update 2",
+      "gate",
+      "g"
+    ],
+    "state_untouched": true
+  },
+  "novel_first_loss": 5.597298615053406,
+  "novel_repeat_loss": 1.6786626358951378,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.4342514591217042,
+  "renamed_loss_nocopy": 1.764182547569275,
+  "test_loss_nocopy_difference": -0.05794854087829582,
+  "per_layer_test_loss": [
+    1.619723247051239,
+    1.4764318494796753,
+    1.4486550889015197
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.870574414730072,
+    "L1": 0.01733986847102642,
+    "L2": 0.02215595915913582,
+    "L4": 0.02456487901508808,
+    "L8": 0.06536505371332169
+  },
+  "test_loss": 1.356766909122467,
+  "renamed_loss": 1.6462422151565552,
+  "renamed_gap": 0.2894753060340882,
+  "val_loss": 1.4980298051834107,
+  "g": [
+    -0.032141853123903275,
+    0.34015440940856934,
+    0.7081725597381592
+  ],
+  "train_seconds": 68.47414939999726,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 139.16748046875,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "variant": "lagged",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "novel_rule": "Q.novel: aligned changed targets; maximal ASCII runs; earlier complete run required for repeat",
+    "D": 256,
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "lr": 0.001,
+    "lr_schedule": "constant",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "local_rule": "own CE with old R.T; iter15 gradients; no cross-layer derivative",
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "layer1_input_width": 1536,
+    "layer1_state_lags": [
+      1,
+      2
+    ],
+    "layer1_new_rows_init": "zero; original rows unchanged; no RNG draws",
+    "layer2_input_width": 1536,
+    "layer2_state_lags": [
+      1,
+      2
+    ],
+    "layer2_new_rows_init": "zero; original rows unchanged; no RNG draws",
+    "layer_inputs": "l=1,2: lower h, three EMAs, lag1, lag2; all from stored old-weight h",
+    "update_order": "per-layer during forward sweep; gate and g after",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "memory": "window-local",
+    "gate_shape": [
+      5,
+      15
+    ],
+    "gate_init": "zero",
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant",
+    "gate_optimizer": "manual Adam",
+    "gate_betas": [
+      0.9,
+      0.999
+    ],
+    "gate_eps": 1e-08,
+    "gate_clip": null,
+    "gate_weight_decay": 0,
+    "gate_features": [
+      "bias",
+      "matched x4",
+      "log2(1+count)/7 x4",
+      "max proposal probability x4",
+      "net max probability",
+      "net entropy/log V"
+    ],
+    "probability_floor": 1e-06,
+    "floor_scope": "mixture log and target denominator; entropy log",
+    "gate_prediction": "old-weight zs and g; after layer updates",
+    "copy_enabled": true,
+    "novel_copy_enabled": true,
+    "net_reference_test_loss": 1.4922
+  },
+  "iter18_copy_reference": {
+    "test_loss": 1.4112,
+    "renamed_loss": 1.6975
+  },
+  "iter21_reference": {
+    "test_loss": 1.3799,
+    "renamed_loss": 1.6685
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": true,
+    "test": false,
+    "renamed": true
+  }
+}

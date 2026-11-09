@@ -1,0 +1,111 @@
+{
+  "checks": {
+    "retrieval": true,
+    "block_finite_difference": true,
+    "causality": true,
+    "evaluation_frozen": true
+  },
+  "novel_first_loss": 5.700872107020177,
+  "novel_repeat_loss": 3.834244133834998,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss": 1.6541677947044373,
+  "renamed_loss": 1.934905544281006,
+  "renamed_gap": 0.2807377495765686,
+  "val_loss": 1.835323205947876,
+  "per_block_test_loss": [
+    1.7057533431053162,
+    1.6615668926239013,
+    1.6541677947044373
+  ],
+  "retrieval_match_rate": {
+    "2": 0.4828711152076721,
+    "4": 0.3251914083957672,
+    "8": 0.19837892055511475
+  },
+  "train_seconds": 52.79485120000027,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 77.154296875,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "learned_input",
+    "bs": 16,
+    "T": 128,
+    "D": 256,
+    "H": 128,
+    "blocks": 3,
+    "passes": 1,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "pad_id": 96,
+    "input_scale": 1,
+    "input_scale_scope": "completed s[0]; iter14 initialization stds unchanged",
+    "input_trainable": true,
+    "input_rule": "three maps: input tables/projections -> W0 -> R0; block 0 only; current-position route divided by 1+matches",
+    "lr": 0.001,
+    "lr_schedule": "constant",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "sampling": "iter17.epoch(train, seed, len(train), V)",
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "eval_chunk": 16,
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "suffix_lengths": [
+      2,
+      4,
+      8
+    ],
+    "retrieval": "most recent exact suffix; successor j+1 <= t; computed once per batch in all modes",
+    "retrieval_enabled": true,
+    "memory": "window-local",
+    "retrieval_match_rate_denominator": "all test input positions",
+    "U_fixed": true,
+    "U_init": "independent uniform signs / sqrt(H)",
+    "layer_mixing": false,
+    "prediction": "z2: cumulative block logits",
+    "local_rule": "own cumulative CE; previous logits, block input and retrieval constant; emit old-weight z and s before immediate block Adam",
+    "novel_rule": "iter15.novel: aligned changed targets; maximal ASCII runs; earlier complete run required for repeat",
+    "pass_bars": {
+      "train_seconds": 90,
+      "test_loss": 1.329,
+      "renamed_loss": 1.667
+    },
+    "autograd": false
+  },
+  "pass": {
+    "train": true,
+    "test": false,
+    "renamed": false
+  }
+}

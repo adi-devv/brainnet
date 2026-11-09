@@ -51,4 +51,26 @@ What this says:
 - Copy heads (iter 18) add 0.08 test at 2.4x backprop's speed. Renamed loss nearly reaches backprop on the same sampling (1.697 vs 1.686), and repeated new names are far cheaper (1.66 vs 5.38 nats). Test loss still misses (1.411 vs 1.341).
 - Open: see PLAN.md.
 
+## Findings (iterations 20-25, same task, 6.2M chars, one pass, seed 0 unless noted)
+
+Each layer learns from its own loss. There is no cross-layer backprop, but gradients inside a layer are still exact. Since iter 22, each layer updates during the forward sweep, before the next layer runs.
+
+| Method | Test | Renamed | Val | Time | Memory |
+|---|---|---|---|---|---|
+| Iter 18 (`local` + copy heads) | 1.411 | 1.697 | - | 74.5 s | 103 MB |
+| Iter 21: lagged lower-layer state into the final layer | 1.380 | 1.668 | 1.538 | 63.8 s | 110 MB |
+| Iter 22: lags at both upper layers, updates during the forward sweep | 1.357 | 1.646 | 1.498 | 68.5 s | 139 MB |
+| Iter 23: iter 22 + two-ahead auxiliary readouts (dropped) | 1.353 | 1.643 | 1.494 | 77.4 s | 150 MB |
+| **Iter 24: iter 22 + LR held for 75% of steps, then cosine to 1e-4 (3-seed mean)** | **1.332** | **1.630** | **1.468** | **66.1 s** | **139 MB** |
+| Iter 25: iter 24 with layers learning detached cumulative-logit residuals (dropped) | 1.380 | 1.701 | 1.528 | 62.3 s | 164 MB |
+
+What this says:
+- Iter 24 matches backprop's test loss (1.332 vs 1.332, backprop's 2-seed mean on its own sampler; 1.341 on the same windows) at about 2.7x the speed, 66 s vs 181 s, using 139 MB vs 321 MB.
+- Its renamed-identifier loss is lower than backprop's single measured seed (1.630 vs 1.667).
+- This is parity at higher speed, not a demonstrated quality win. The test set was reused to choose between iterations through iter 24, so it is now development data. Selection uses validation from here on.
+- Backprop still wins with more data: 1.124 test at 16M chars. Iter 24 has not been run at that scale.
+- Learning-rate decay was the largest single gain, 0.025 test for no added time.
+- Iter 20 (associative retrieval) did not help: 1.645 test with retrieval, 1.573 without.
+- Iter 25 made validation 0.061 worse, so redundant layer objectives were not the bottleneck in this setup. Its code and result stay in the repo as a record.
+
 Code is in `iterN.py`, briefs in `briefs/`, raw numbers in `results/`.

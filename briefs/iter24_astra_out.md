@@ -1,0 +1,11 @@
+1. **Kill configurations, not this family.** The review’s rule concerned widening; these results strengthen the case for continuing. **1.329 is a historical target, not a defensible superiority threshold** derived from one backprop seed. Repeated test-based selection was a mistake: that test is now development data.
+
+   You have encouraging **quality parity at 2.7× speed**, not established lower loss. For “better,” I would accept either significantly lower loss at matched resources, or noninferior loss within a preregistered 0.005-nat margin with this speed advantage. Use a fresh untouched holdout and at least five paired seeds. Controls need matched data/order, context, evaluation, comparable schedule tuning, and both equal-token and equal-time comparisons. Give backprop equivalent copy heads; use backprop through the same architecture to isolate the learning-rule contribution.
+
+2. **I would spend the headroom on data before width:** iter24 unchanged, three 256-wide layers, batch 16, T=128, existing lags/local losses/copy heads/gates/EMAs; **8M unique training characters, one pass**, seed 0. Network LR 1e-3 through 6M characters, then cosine to 1e-4; gate LR fixed. Projected time: approximately **85–86 seconds**, not guaranteed.
+
+   **Screening pass:** ≤90 seconds, ≤4 GB, validation ≤1.4569—a preregistered 0.010 improvement over seed 0. Then replicate seeds 1–2 and require mean validation improvement ≥0.010. Otherwise kill this configuration, not local learning. Stop selecting on test.
+
+3. **Yes: optimization was a substantial limitation.** Decay improves test by 0.0248 and no-copy test by 0.0344; the gain is not merely copy-head assistance. It does not establish that capacity or local credit assignment will remain adequate with more data. I revise my **15% to approximately 60%** for modest changes clearing the original numerical bars under 90 seconds. That is subjective, not a scaling probability.
+
+4. **8M is the cheapest useful scaling screen.** The cheapest direct check against 1.1238 is one unchanged iter24 run at **16M**, stretching the schedule proportionally, with matched backprop conditions. Expect roughly **170 seconds**: this requires relaxing the cap. A 6.2M-to-8M slope cannot establish 16M parity.
