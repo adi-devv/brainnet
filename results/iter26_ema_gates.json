@@ -1,0 +1,173 @@
+{
+  "checks": {
+    "matches": true,
+    "gate_finite_difference": true,
+    "causality": true,
+    "gates_zero_init": true,
+    "initial_rng": true,
+    "initial_logits_equal_iter24": true,
+    "fd_max_abs_error": {
+      "1": 1.653124471622143e-10,
+      "2": 1.3204477973278311e-10
+    },
+    "gate_lr_fraction": 0.1,
+    "first_step_equals_iter24": true,
+    "layer0_equals_iter24": true,
+    "schedule_applied": true,
+    "order_events": [
+      "activate 0",
+      "update 0",
+      "activate 1",
+      "update 1",
+      "activate 2",
+      "update 2",
+      "gate",
+      "update g"
+    ],
+    "state_untouched": true
+  },
+  "novel_first_loss": 5.666789325806274,
+  "novel_repeat_loss": 1.7380673866690493,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.389481664419174,
+  "renamed_loss_nocopy": 1.7311067023277282,
+  "val_loss_nocopy": 1.5504156980514527,
+  "per_layer_test_loss": [
+    1.644203779220581,
+    1.4435350732803345,
+    1.3921685144901275
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.8763601779937744,
+    "L1": 0.014348126016557217,
+    "L2": 0.019976938143372536,
+    "L4": 0.023461855947971344,
+    "L8": 0.0658528134226799
+  },
+  "ema_gate_test": {
+    "layer1": {
+      "mean": [
+        0.6741246581077576,
+        0.10242123901844025,
+        0.22345423698425293
+      ],
+      "std": [
+        0.19227667152881622,
+        0.09536236524581909,
+        0.15496781468391418
+      ]
+    },
+    "layer2": {
+      "mean": [
+        0.6083927154541016,
+        0.10795599967241287,
+        0.2836512327194214
+      ],
+      "std": [
+        0.11910998076200485,
+        0.08247781544923782,
+        0.08661824464797974
+      ]
+    }
+  },
+  "saturated_fraction_test": [
+    0.01540281716734171,
+    0.4124029576778412,
+    0.5864288806915283
+  ],
+  "test_loss": 1.3211429522037506,
+  "renamed_loss": 1.6194912099838257,
+  "renamed_gap": 0.2983482577800751,
+  "val_loss": 1.458399863243103,
+  "val_improvement": 0.008457348823547317,
+  "train_seconds": 111.30513669999345,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 159.98974609375,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "variant": "ema_gates",
+    "base": "iter24",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "hold then cosine",
+    "lr_applies_to": "network; copy gate fixed; EMA gates 0.1x network",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "ema_gate": "pi=softmax(lower @ G + d), one per position, each EMA block scaled by 3*pi_k; G,d zero-init; layer-local exact gradient",
+    "ema_gate_lr_fraction": 0.1,
+    "final_logits": "learned g mix",
+    "gate_input": "old-weight mixed probabilities",
+    "update_order": "per-layer during forward sweep; copy gate, then g",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant"
+  },
+  "iter24_reference": {
+    "test_loss": 1.3319699466228485,
+    "renamed_loss": 1.6297988948822022,
+    "val_loss": 1.4668572120666503,
+    "train_seconds": 65.569419200001
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": false,
+    "val": false
+  }
+}
