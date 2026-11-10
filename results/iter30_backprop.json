@@ -1,0 +1,273 @@
+{
+  "checks": {
+    "initial_iter27_parameters_exact": true,
+    "initial_rng_exact": true,
+    "initial_gate_exact": true,
+    "zero_adam_states": true,
+    "initial_forward_equal_iter27": true,
+    "all_layer_causality": true,
+    "detached_autograd_equals_iter27_local": true,
+    "local_autograd_max_abs_error": {
+      "R0": 1.3877787807814457e-17,
+      "c0": 5.551115123125783e-17,
+      "b0": 2.7755575615628914e-17,
+      "A0": 2.0816681711721685e-17,
+      "A1": 2.0816681711721685e-17,
+      "A2": 2.0816681711721685e-17,
+      "A3": 2.0816681711721685e-17,
+      "A4": 2.7755575615628914e-17,
+      "A5": 2.7755575615628914e-17,
+      "P0": 6.938893903907228e-18,
+      "P1": 3.469446951953614e-18,
+      "P2": 8.673617379884035e-19,
+      "E": 2.2551405187698492e-17,
+      "R1": 1.3877787807814457e-17,
+      "c1": 5.551115123125783e-17,
+      "b1": 2.0816681711721685e-17,
+      "W1": 1.0408340855860843e-17,
+      "R2": 1.3877787807814457e-17,
+      "c2": 5.551115123125783e-17,
+      "b2": 1.3877787807814457e-17,
+      "W2": 5.204170427930421e-18
+    },
+    "cross_layer_gradient_norm": {
+      "0": 1.2541097366918792,
+      "1": 0.9628707897976938
+    },
+    "one_network_adam_sweep": true,
+    "summed_gradient_applied": true,
+    "schedule_values": true,
+    "state_and_rng_untouched": true
+  },
+  "novel_first_loss": 5.781728665638403,
+  "novel_repeat_loss": 1.8225305793505784,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.3133630180358886,
+  "renamed_loss_nocopy": 1.6734890837669372,
+  "per_layer_test_loss": [
+    1.7570174317359923,
+    1.4249053587913514,
+    1.3099349138736724
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.8908361196517944,
+    "L1": 0.004412505310028791,
+    "L2": 0.019065825268626213,
+    "L4": 0.020906036719679832,
+    "L8": 0.06477955728769302
+  },
+  "mode": "backprop",
+  "curve": [
+    [
+      622592,
+      1.8109956817626953
+    ],
+    [
+      1243136,
+      1.631835289001465
+    ],
+    [
+      1865702,
+      1.5184543285369874
+    ],
+    [
+      2486246,
+      1.4589551410675048
+    ],
+    [
+      3108838,
+      1.418799072265625
+    ],
+    [
+      3729382,
+      1.3971313972473145
+    ],
+    [
+      4351974,
+      1.3577097396850586
+    ],
+    [
+      4972518,
+      1.3535629119873047
+    ],
+    [
+      5595110,
+      1.3138780879974366
+    ],
+    [
+      6215526,
+      1.2991252422332764
+    ]
+  ],
+  "eval_seconds": 10.304618600006506,
+  "test_loss": 1.2562229828834535,
+  "renamed_loss": 1.5714128530025482,
+  "renamed_gap": 0.3151898701190947,
+  "val_loss": 1.3868699436187744,
+  "g": [
+    -0.09235050529241562,
+    0.1694095879793167,
+    0.940099835395813
+  ],
+  "train_seconds": 79.40085890000046,
+  "chars": 6215526,
+  "steps": 3035,
+  "params": 1142478,
+  "param_counts": {
+    "network": 1142403,
+    "gate": 75,
+    "total": 1142478,
+    "attention": 0,
+    "W2_extra_rows": 0,
+    "iter27_network": 1142403,
+    "by_tensor": {
+      "A0": 24832,
+      "A1": 24832,
+      "A2": 24832,
+      "A3": 24832,
+      "A4": 24832,
+      "A5": 24832,
+      "E": 3104,
+      "P0": 8192,
+      "P1": 8192,
+      "P2": 8192,
+      "b0": 256,
+      "R0": 24576,
+      "c0": 96,
+      "W1": 393216,
+      "b1": 256,
+      "R1": 24576,
+      "c1": 96,
+      "W2": 491520,
+      "b2": 320,
+      "R2": 30720,
+      "c2": 96,
+      "g": 3
+    }
+  },
+  "peak_allocated_mib": 150.78369140625,
+  "peak_reserved_mib": 196.0,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "control_mode": "backprop",
+    "variant": "width320",
+    "base": "iter27",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "widths": [
+      256,
+      256,
+      320
+    ],
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "layer2_input_width": 1536,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "constant for s <= .75*S, then cosine to lr_final at s = S (1-indexed)",
+    "lr_applies_to": "all network parameters including g",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "gradient_clip_scope": "each parameter tensor separately, as iter27",
+    "weight_decay": 0,
+    "update_order": "full forward; summed own-readout backward; gate; one network Adam sweep",
+    "network_losses": "sum of three per-layer mean CE losses; mixed CE drives only g",
+    "cross_layer_gradients": true,
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant",
+    "curve_steps": [
+      304,
+      607,
+      911,
+      1214,
+      1518,
+      1821,
+      2125,
+      2428,
+      2732,
+      3035
+    ],
+    "curve_val_windows": 500,
+    "curve_subset": "first quarter of fixed val windows; no respacing",
+    "eval_seconds_scope": "curve subset preparation, curve evaluations and all final evaluations"
+  },
+  "iter27_reference": {
+    "val_loss": 1.45627,
+    "test_loss": 1.3232,
+    "renamed_loss": 1.6232
+  },
+  "iter24_reference": {
+    "val_loss": 1.46686,
+    "test_loss": 1.332,
+    "renamed_loss": 1.6298
+  },
+  "iter22_reference": {
+    "test_loss": 1.3568,
+    "renamed_loss": 1.6462
+  },
+  "iter23_reference": {
+    "test_loss": 1.353,
+    "renamed_loss": 1.643
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": true,
+    "val": true,
+    "test": true,
+    "renamed": true
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "candidate": "auxhead",
+  "checkpoint": "C:\\Users\\aadit\\AppData\\Local\\Temp\\claude\\2e162b2224a69697\\71efcaa5-cf65-4cbc-90fa-3206306ba725\\scratchpad\\bn\\ckpt\\local_s0_p15.pt",
+  "checkpoint_step": 456,
+  "total_steps": 3035,
+  "branch_steps": 64,
+  "head_warmup_steps": 32,
+  "local_idle_batches": 32,
+  "val_windows": 32,
+  "hid": 64,
+  "alpha": 0.5,
+  "checkpoint_losses": {
+    "top": 1.9946370124816895,
+    "mixed": 1.8850330114364624,
+    "mixed_nocopy": 1.9738439917564392
+  },
+  "local": {
+    "top": 1.9408211708068848,
+    "mixed": 1.8550030589103699,
+    "mixed_nocopy": 1.9441388249397278
+  },
+  "candidate_losses": {
+    "top": 1.9304178357124329,
+    "mixed": 1.8697088360786438,
+    "mixed_nocopy": 1.9549171328544617
+  },
+  "delta_candidate_minus_local": {
+    "top": -0.010403335094451904,
+    "mixed": 0.014705777168273926,
+    "mixed_nocopy": 0.010778307914733887
+  },
+  "change_from_checkpoint": {
+    "local": {
+      "top": -0.05381584167480469,
+      "mixed": -0.03002995252609253,
+      "mixed_nocopy": -0.029705166816711426
+    },
+    "candidate": {
+      "top": -0.06421917676925659,
+      "mixed": -0.015324175357818604,
+      "mixed_nocopy": -0.01892685890197754
+    }
+  },
+  "diagnostics_at_checkpoint": [
+    {
+      "batch": 0,
+      "layers": {
+        "0": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.48161146220976436
+        },
+        "1": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.4330575293111059
+        }
+      }
+    },
+    {
+      "batch": 1,
+      "layers": {
+        "0": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.41346315984529164
+        },
+        "1": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.4461640238716249
+        }
+      }
+    },
+    {
+      "batch": 2,
+      "layers": {
+        "0": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.3335414550364584
+        },
+        "1": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.4120977886022152
+        }
+      }
+    },
+    {
+      "batch": 3,
+      "layers": {
+        "0": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.3812771922523195
+        },
+        "1": {
+          "cosine": null,
+          "norm_ratio": 0.0,
+          "candidate_norm": 0.0,
+          "bp_norm": 0.421095785356679
+        }
+      }
+    }
+  ],
+  "diagnostics_after_head_warmup": [
+    {
+      "batch": 0,
+      "layers": {
+        "0": {
+          "cosine": -0.37398067512495686,
+          "norm_ratio": 0.4927639211323916,
+          "candidate_norm": 0.2373207525807881,
+          "bp_norm": 0.48161146220976436
+        },
+        "1": {
+          "cosine": 0.16368037994144372,
+          "norm_ratio": 0.7566141340706828,
+          "candidate_norm": 0.32765744754251175,
+          "bp_norm": 0.4330575293111059
+        }
+      }
+    },
+    {
+      "batch": 1,
+      "layers": {
+        "0": {
+          "cosine": -0.3373109034417655,
+          "norm_ratio": 0.6857895905140268,
+          "candidate_norm": 0.28354873108293815,
+          "bp_norm": 0.41346315984529164
+        },
+        "1": {
+          "cosine": 0.09437869784349073,
+          "norm_ratio": 0.5889122299295128,
+          "candidate_norm": 0.26275145021256296,
+          "bp_norm": 0.4461640238716249
+        }
+      }
+    },
+    {
+      "batch": 2,
+      "layers": {
+        "0": {
+          "cosine": -0.16321955969273522,
+          "norm_ratio": 0.8873125106848312,
+          "candidate_norm": 0.2959555058858716,
+          "bp_norm": 0.3335414550364584
+        },
+        "1": {
+          "cosine": 0.03358775567076584,
+          "norm_ratio": 0.7406812499846787,
+          "candidate_norm": 0.3052331051778106,
+          "bp_norm": 0.4120977886022152
+        }
+      }
+    },
+    {
+      "batch": 3,
+      "layers": {
+        "0": {
+          "cosine": -0.22870600415641276,
+          "norm_ratio": 0.883097408912718,
+          "candidate_norm": 0.3367049005555396,
+          "bp_norm": 0.3812771922523195
+        },
+        "1": {
+          "cosine": 0.15005241987168805,
+          "norm_ratio": 0.6876824879417262,
+          "candidate_norm": 0.2895801973358561,
+          "bp_norm": 0.421095785356679
+        }
+      }
+    }
+  ],
+  "wall_seconds": 3.8436077000005753,
+  "warmup_seconds": 0.2522322000004351,
+  "branch_seconds": {
+    "local": 1.3387301999991905,
+    "candidate": 1.6203643000008014
+  },
+  "settings": {
+    "seed": 0,
+    "bs": 16,
+    "T": 128,
+    "diagnostic_batches": 4,
+    "diagnostic_parameters": "each lower backbone, excludes inference readouts and auxiliary heads",
+    "diagnostic_direction": "negative raw gradients, before Adam and clipping",
+    "bp_objective": "summed three iter30 inference readout CE, fully flowing",
+    "delta_sign": "negative is better",
+    "mixed_loss": "final network g mixture plus suffix copy gate",
+    "validation": "first 32 original fixed val windows, no respacing",
+    "warmup": "head-only; frozen backbone and gate; next scheduled LR held; fresh head Adam",
+    "schedule": "64 original schedule steps starting at checkpoint.step+1; no compression",
+    "data": "identical branch batches; aux warmup/local idle consume identical extra 32 batches",
+    "wall_scope": "load, batch preparation, diagnostics, warmup, both branches and evals; excludes checkpoint creation"
+  }
+}

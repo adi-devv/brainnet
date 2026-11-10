@@ -74,3 +74,31 @@ What this says:
 - Iter 25 made validation 0.061 worse, so redundant layer objectives were not the bottleneck in this setup. Its code and result stay in the repo as a record.
 
 Code is in `iterN.py`, briefs in `briefs/`, raw numbers in `results/`.
+
+## Findings (iterations 26-37, same task and splits, 6.2M chars, one pass, seed 0 unless noted)
+
+Iter 30 adds a fair control: the same layered architecture trained with ordinary backprop.
+
+| Method | Test | Renamed | Val | Time | Peak memory |
+|---|---|---|---|---|---|
+| Iter 26: EMA gates (3 seeds) | 1.321 | - | 1.459 | - | - |
+| Iter 27: width 320 (3 seeds) | - | - | 1.458 | - | 136 MiB |
+| Iter 28: soft tanh (dropped) | - | - | 1.480 | - | - |
+| Iter 29: gates + width 320 | - | - | 1.449 | 107 s | - |
+| Iter 30: local learning control | 1.323 | - | 1.456 | 69.8 s | - |
+| Iter 30: local + attention | 1.291 | - | 1.410 | - | - |
+| **Iter 30: backprop, same architecture (BP reference)** | **1.256** | **1.571** | **1.387** | **79.4 s** | **151 MiB** |
+| Iter 33: top-down teaching (dropped) | - | - | 1.560 | - | - |
+| Iter 34: auxiliary heads (dropped) | - | - | 1.492 | - | - |
+| **Iter 35: one-shot count tables, no backprop** | **1.223** | 1.588 | **1.341** | **66.9 s** | **103 MiB** |
+| Iter 35: tables + local learned keys | 1.228 | 1.594 | 1.342 | 85.8 s | 132 MiB |
+| Iter 37: tables, 4x capacity | 1.189 | 1.555 | 1.290 | 68.3 s | 240 MiB |
+| Iter 37: tables, 16x capacity | 1.177 | 1.544 | 1.262 | 72.7 s | 792 MiB |
+
+What this says:
+- Count tables (hashed context to next-char counts, mixed by a local log-linear pool) beat matched backprop on test and val with about 29k FLOPs/char, 248x fewer than backprop's 7.19M, and less time and memory. Renamed code is still slightly worse at 1x capacity.
+- Iter 35 seemed to plateau late in training (val 1.293 to 1.269 over the last 60%). Iter 37 shows the cause is capacity: with 4x and 16x tables the curve keeps falling (16x: 1.236 to 1.178), and both beat backprop on test and renamed.
+- The cost is memory: 16x needs 792 MiB against backprop's 151 MiB. Iter 38 (in progress) targets 16x quality within 151 MiB using compact 3-byte entries, 4-way buckets with frequency eviction, a doorkeeper admission filter and budgeted growth.
+- Wall time is only 1.2x faster than backprop despite 248x fewer FLOPs. The time goes to hashing, gathers, sync and diagnostics, not arithmetic.
+- Caveats: one seed, 6.2M chars, and the test set is development data. Count models are known to be strong at small data, and backprop may close the gap at scale (Astra's review, `briefs/iter37_astra_out.md`). A data-scaling screen against matched and larger backprop models is the decisive next test.
+- Iter 36 (`roles.py`, identifiers keyed by causal role for the renamed gap) is built but not yet run.

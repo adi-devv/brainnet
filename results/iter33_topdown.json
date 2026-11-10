@@ -1,0 +1,418 @@
+{
+  "checks": {
+    "initial_iter27_parameters_exact": true,
+    "initial_rng_exact": true,
+    "initial_gate_exact": true,
+    "zero_adam_states": true,
+    "initial_forward_equal_iter27": true,
+    "all_layer_causality": true,
+    "detached_autograd_equals_iter27_local": true,
+    "local_autograd_max_abs_error": {
+      "R0": 1.3877787807814457e-17,
+      "c0": 5.551115123125783e-17,
+      "b0": 2.7755575615628914e-17,
+      "A0": 2.0816681711721685e-17,
+      "A1": 2.0816681711721685e-17,
+      "A2": 2.0816681711721685e-17,
+      "A3": 2.0816681711721685e-17,
+      "A4": 2.7755575615628914e-17,
+      "A5": 2.7755575615628914e-17,
+      "P0": 6.938893903907228e-18,
+      "P1": 3.469446951953614e-18,
+      "P2": 8.673617379884035e-19,
+      "E": 2.2551405187698492e-17,
+      "R1": 1.3877787807814457e-17,
+      "c1": 5.551115123125783e-17,
+      "b1": 2.0816681711721685e-17,
+      "W1": 1.0408340855860843e-17,
+      "R2": 1.3877787807814457e-17,
+      "c2": 5.551115123125783e-17,
+      "b2": 1.3877787807814457e-17,
+      "W2": 5.204170427930421e-18
+    },
+    "local_step_equals_iter27": true,
+    "schedule_values": true,
+    "state_and_rng_untouched": true,
+    "local_losses_no_cross_layer_gradients": true,
+    "kl_teacher_detached": true,
+    "teaching_float64_autograd": true,
+    "teaching_max_abs_error": {
+      "0.0:A0": 2.0816681711721685e-17,
+      "0.0:A1": 2.0816681711721685e-17,
+      "0.0:A2": 2.0816681711721685e-17,
+      "0.0:A3": 2.0816681711721685e-17,
+      "0.0:A4": 2.7755575615628914e-17,
+      "0.0:A5": 2.7755575615628914e-17,
+      "0.0:E": 2.2551405187698492e-17,
+      "0.0:P0": 6.938893903907228e-18,
+      "0.0:P1": 3.469446951953614e-18,
+      "0.0:P2": 8.673617379884035e-19,
+      "0.0:b0": 2.7755575615628914e-17,
+      "0.0:R0": 1.3877787807814457e-17,
+      "0.0:c0": 5.551115123125783e-17,
+      "0.0:W1": 1.0408340855860843e-17,
+      "0.0:b1": 2.0816681711721685e-17,
+      "0.0:R1": 1.3877787807814457e-17,
+      "0.0:c1": 5.551115123125783e-17,
+      "0.0:W2": 5.204170427930421e-18,
+      "0.0:b2": 1.3877787807814457e-17,
+      "0.0:R2": 1.3877787807814457e-17,
+      "0.0:c2": 5.551115123125783e-17,
+      "0.37:A0": 1.214306433183765e-17,
+      "0.37:A1": 1.3877787807814457e-17,
+      "0.37:A2": 1.3877787807814457e-17,
+      "0.37:A3": 1.214306433183765e-17,
+      "0.37:A4": 1.3877787807814457e-17,
+      "0.37:A5": 1.3877787807814457e-17,
+      "0.37:E": 1.3877787807814457e-17,
+      "0.37:P0": 4.228388472693467e-18,
+      "0.37:P1": 2.6020852139652106e-18,
+      "0.37:P2": 7.589415207398531e-19,
+      "0.37:b0": 1.3877787807814457e-17,
+      "0.37:R0": 6.938893903907228e-18,
+      "0.37:c0": 2.7755575615628914e-17,
+      "0.37:W1": 3.469446951953614e-18,
+      "0.37:b1": 1.3877787807814457e-17,
+      "0.37:R1": 3.469446951953614e-18,
+      "0.37:c1": 5.204170427930421e-18,
+      "0.37:W2": 5.204170427930421e-18,
+      "0.37:b2": 1.3877787807814457e-17,
+      "0.37:R2": 1.3877787807814457e-17,
+      "0.37:c2": 5.551115123125783e-17,
+      "1.0:A0": 5.9631119486702744e-18,
+      "1.0:A1": 4.336808689942018e-18,
+      "1.0:A2": 4.336808689942018e-18,
+      "1.0:A3": 5.9631119486702744e-18,
+      "1.0:A4": 5.908901840045999e-18,
+      "1.0:A5": 5.908901840045999e-18,
+      "1.0:E": 5.854691731421724e-18,
+      "1.0:P0": 1.6534083130403943e-18,
+      "1.0:P1": 8.131516293641283e-19,
+      "1.0:P2": 2.270048298641525e-19,
+      "1.0:b0": 5.908901840045999e-18,
+      "1.0:R0": 2.168404344971009e-18,
+      "1.0:c0": 8.239936510889834e-18,
+      "1.0:W1": 8.538092108323347e-19,
+      "1.0:b1": 2.656295322589486e-18,
+      "1.0:R1": 7.589415207398531e-19,
+      "1.0:c1": 3.5236570605778894e-18,
+      "1.0:W2": 5.204170427930421e-18,
+      "1.0:b2": 1.3877787807814457e-17,
+      "1.0:R2": 1.3877787807814457e-17,
+      "1.0:c2": 5.551115123125783e-17
+    },
+    "kl_logit_gradient_float64_autograd": true,
+    "kl_max_abs_error": {
+      "0": 4.553649124439119e-18,
+      "1": 3.686287386450715e-18
+    },
+    "bp_teaching_float64_autograd": true,
+    "bp_teaching_max_abs_error": {
+      "0.0:A0": 0.0,
+      "0.0:A1": 0.0,
+      "0.0:A2": 0.0,
+      "0.0:A3": 0.0,
+      "0.0:A4": 0.0,
+      "0.0:A5": 0.0,
+      "0.0:E": 0.0,
+      "0.0:P0": 0.0,
+      "0.0:P1": 0.0,
+      "0.0:P2": 0.0,
+      "0.0:b0": 0.0,
+      "0.0:R0": 0.0,
+      "0.0:c0": 0.0,
+      "0.0:W1": 0.0,
+      "0.0:b1": 0.0,
+      "0.0:R1": 0.0,
+      "0.0:c1": 0.0,
+      "0.0:W2": 0.0,
+      "0.0:b2": 0.0,
+      "0.0:R2": 0.0,
+      "0.0:c2": 0.0,
+      "0.37:A0": 1.3877787807814457e-17,
+      "0.37:A1": 1.3877787807814457e-17,
+      "0.37:A2": 1.3877787807814457e-17,
+      "0.37:A3": 1.3877787807814457e-17,
+      "0.37:A4": 2.7755575615628914e-17,
+      "0.37:A5": 2.7755575615628914e-17,
+      "0.37:E": 2.0816681711721685e-17,
+      "0.37:P0": 6.071532165918825e-18,
+      "0.37:P1": 3.469446951953614e-18,
+      "0.37:P2": 8.673617379884035e-19,
+      "0.37:b0": 2.7755575615628914e-17,
+      "0.37:R0": 8.673617379884035e-19,
+      "0.37:c0": 1.734723475976807e-18,
+      "0.37:W1": 3.469446951953614e-18,
+      "0.37:b1": 1.3877787807814457e-17,
+      "0.37:R1": 3.469446951953614e-18,
+      "0.37:c1": 1.734723475976807e-18,
+      "0.37:W2": 0.0,
+      "0.37:b2": 0.0,
+      "0.37:R2": 0.0,
+      "0.37:c2": 0.0
+    },
+    "bp_alpha_zero_equals_iter30_backprop": true,
+    "bp_teaching_cross_layer_norm": {
+      "0": 0.9109962535252301,
+      "1": 0.9628707897976938
+    },
+    "alpha_zero_three_steps_equal_iter30_local": true,
+    "same_step_one_forward_gradients_applied": {
+      "topdown": true,
+      "topdown_bp": true
+    },
+    "teaching_ramp": true
+  },
+  "novel_first_loss": 5.5601433458616265,
+  "novel_repeat_loss": 1.6445167238002247,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.4898417677879334,
+  "renamed_loss_nocopy": 1.8014000735282898,
+  "per_layer_test_loss": [
+    1.7115161681175233,
+    1.5704900712966918,
+    1.4893728275299072
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.8604917526245117,
+    "L1": 0.02018417976796627,
+    "L2": 0.022887423634529114,
+    "L4": 0.02685856632888317,
+    "L8": 0.06957843154668808
+  },
+  "mode": "topdown",
+  "alpha": 0.5,
+  "curve": [
+    [
+      622592,
+      1.8846543388366699
+    ],
+    [
+      1243136,
+      1.8358035221099853
+    ],
+    [
+      1865702,
+      1.7581475830078126
+    ],
+    [
+      2486246,
+      1.687467290878296
+    ],
+    [
+      3108838,
+      1.640564208984375
+    ],
+    [
+      3729382,
+      1.611504930496216
+    ],
+    [
+      4351974,
+      1.5570176792144776
+    ],
+    [
+      4972518,
+      1.5447810726165772
+    ],
+    [
+      5595110,
+      1.4747230472564696
+    ],
+    [
+      6215526,
+      1.452153423309326
+    ]
+  ],
+  "eval_seconds": 10.147881500002768,
+  "mean_kl_last10": [
+    0.2578908965285671,
+    0.10299091710169848
+  ],
+  "train_loss_mean": 1.7282845708055197,
+  "train_peak_mib": 126.11328125,
+  "eval_peak_mib": 121.68017578125,
+  "train_peak_reserved_mib": 318.0,
+  "eval_peak_reserved_mib": 318.0,
+  "references": {
+    "local_val": 1.45627,
+    "bp_val": 1.38687,
+    "attn_local_val": 1.41043
+  },
+  "test_loss": 1.410900749206543,
+  "renamed_loss": 1.6837382702827453,
+  "renamed_gap": 0.2728375210762022,
+  "val_loss": 1.5595874195098878,
+  "g": [
+    0.036785539239645004,
+    0.19803982973098755,
+    0.799803614616394
+  ],
+  "train_seconds": 71.28308910000123,
+  "chars": 6215526,
+  "steps": 3035,
+  "params": 1142478,
+  "param_counts": {
+    "network": 1142403,
+    "gate": 75,
+    "total": 1142478,
+    "attention": 0,
+    "W2_extra_rows": 0,
+    "iter27_network": 1142403,
+    "by_tensor": {
+      "A0": 24832,
+      "A1": 24832,
+      "A2": 24832,
+      "A3": 24832,
+      "A4": 24832,
+      "A5": 24832,
+      "E": 3104,
+      "P0": 8192,
+      "P1": 8192,
+      "P2": 8192,
+      "b0": 256,
+      "R0": 24576,
+      "c0": 96,
+      "W1": 393216,
+      "b1": 256,
+      "R1": 24576,
+      "c1": 96,
+      "W2": 491520,
+      "b2": 320,
+      "R2": 30720,
+      "c2": 96,
+      "g": 3
+    }
+  },
+  "peak_allocated_mib": 126.11328125,
+  "peak_reserved_mib": 318.0,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "control_mode": "topdown",
+    "variant": "width320",
+    "base": "iter27",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "widths": [
+      256,
+      256,
+      320
+    ],
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "layer2_input_width": 1536,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "constant for s <= .75*S, then cosine to lr_final at s = S (1-indexed)",
+    "lr_applies_to": "all network parameters including g",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "gradient_clip_scope": "each parameter tensor separately, as iter27",
+    "weight_decay": 0,
+    "update_order": "full forward; local manual updates 0,1,2; gate and g after",
+    "network_losses": "layers 0,1: (1-a)*CE+a*KL(top||layer); top: CE; mixed CE drives only g",
+    "alpha": 0.5,
+    "teaching_schedule": "a=alpha*clamp((s/S-.05)/.15, 0, 1); s is 1-indexed",
+    "teaching_target": "same-step detached top own-readout softmax; network only",
+    "kl_reduction": "mean over valid (y >= 0) positions, same as CE",
+    "mean_kl_last10_scope": "unweighted mean of per-step KL over final 304 steps; layers 0,1",
+    "memory_peak_scope": "after startup checks; train and eval phases measured separately; allocated includes live baseline",
+    "cross_layer_gradients": false,
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant",
+    "curve_steps": [
+      304,
+      607,
+      911,
+      1214,
+      1518,
+      1821,
+      2125,
+      2428,
+      2732,
+      3035
+    ],
+    "curve_val_windows": 500,
+    "curve_subset": "first quarter of fixed val windows; no respacing",
+    "eval_seconds_scope": "curve subset preparation, curve evaluations and all final evaluations"
+  },
+  "iter27_reference": {
+    "val_loss": 1.45627,
+    "test_loss": 1.3232,
+    "renamed_loss": 1.6232
+  },
+  "iter24_reference": {
+    "val_loss": 1.46686,
+    "test_loss": 1.332,
+    "renamed_loss": 1.6298
+  },
+  "iter22_reference": {
+    "test_loss": 1.3568,
+    "renamed_loss": 1.6462
+  },
+  "iter23_reference": {
+    "test_loss": 1.353,
+    "renamed_loss": 1.643
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": true,
+    "val": false,
+    "test": false,
+    "renamed": false
+  }
+}

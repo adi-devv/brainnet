@@ -1,0 +1,280 @@
+{
+  "checks": {
+    "initial_iter27_parameters_exact": true,
+    "initial_rng_exact": true,
+    "initial_gate_exact": true,
+    "zero_adam_states": true,
+    "initial_forward_equal_iter27": true,
+    "all_layer_causality": true,
+    "zero_O_initial_equivalence": true,
+    "active_attention_causality": true,
+    "top_local_float64_autograd": true,
+    "top_autograd_max_abs_error": {
+      "W2": 1.734723475976807e-18,
+      "b2": 6.938893903907228e-18,
+      "R2": 4.5102810375396984e-17,
+      "c2": 3.469446951953614e-18,
+      "attn_Q": 4.235164736271502e-22,
+      "attn_K": 7.411538288475128e-22,
+      "attn_V": 6.505213034913027e-19,
+      "attn_O": 2.6020852139652106e-18
+    },
+    "top_loss_no_lower_gradients": true,
+    "top_gradient_applied": true,
+    "schedule_values": true,
+    "state_and_rng_untouched": true
+  },
+  "novel_first_loss": 5.69131732971843,
+  "novel_repeat_loss": 1.7556347651498372,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.3468515625,
+  "renamed_loss_nocopy": 1.696172301530838,
+  "per_layer_test_loss": [
+    1.6442037739753723,
+    1.4591870646476746,
+    1.3495729737281799
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.9054556488990784,
+    "L1": 0.004663426429033279,
+    "L2": 0.01745511032640934,
+    "L4": 0.02060372568666935,
+    "L8": 0.051822274923324585
+  },
+  "mode": "attn",
+  "curve": [
+    [
+      622592,
+      1.8446088962554932
+    ],
+    [
+      1243136,
+      1.6784293746948242
+    ],
+    [
+      1865702,
+      1.5746633567810058
+    ],
+    [
+      2486246,
+      1.5132973670959473
+    ],
+    [
+      3108838,
+      1.4660955619812013
+    ],
+    [
+      3729382,
+      1.4596349906921386
+    ],
+    [
+      4351974,
+      1.398647943496704
+    ],
+    [
+      4972518,
+      1.3813794860839843
+    ],
+    [
+      5595110,
+      1.3353506031036377
+    ],
+    [
+      6215526,
+      1.3130281448364258
+    ]
+  ],
+  "eval_seconds": 13.081110900002386,
+  "test_loss": 1.291323433637619,
+  "renamed_loss": 1.5969780194759369,
+  "renamed_gap": 0.30565458583831795,
+  "val_loss": 1.41042928314209,
+  "g": [
+    -0.06694290786981583,
+    0.21491649746894836,
+    0.8729438185691833
+  ],
+  "train_seconds": 86.7090180000032,
+  "chars": 6215526,
+  "steps": 3035,
+  "params": 1486542,
+  "param_counts": {
+    "network": 1486467,
+    "gate": 75,
+    "total": 1486542,
+    "attention": 262144,
+    "W2_extra_rows": 81920,
+    "iter27_network": 1142403,
+    "by_tensor": {
+      "A0": 24832,
+      "A1": 24832,
+      "A2": 24832,
+      "A3": 24832,
+      "A4": 24832,
+      "A5": 24832,
+      "E": 3104,
+      "P0": 8192,
+      "P1": 8192,
+      "P2": 8192,
+      "b0": 256,
+      "R0": 24576,
+      "c0": 96,
+      "W1": 393216,
+      "b1": 256,
+      "R1": 24576,
+      "c1": 96,
+      "W2": 573440,
+      "b2": 320,
+      "R2": 30720,
+      "c2": 96,
+      "g": 3,
+      "attn_Q": 65536,
+      "attn_K": 65536,
+      "attn_V": 65536,
+      "attn_O": 65536
+    }
+  },
+  "peak_allocated_mib": 153.27001953125,
+  "peak_reserved_mib": 210.0,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "control_mode": "attn",
+    "variant": "width320",
+    "base": "iter27",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "widths": [
+      256,
+      256,
+      320
+    ],
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "layer2_input_width": 1792,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "constant for s <= .75*S, then cosine to lr_final at s = S (1-indexed)",
+    "lr_applies_to": "all network parameters including g",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "gradient_clip_scope": "each parameter tensor separately, as iter27",
+    "weight_decay": 0,
+    "update_order": "per-layer during forward sweep; gate and g after",
+    "network_losses": "sum of three per-layer mean CE losses; mixed CE drives only g",
+    "cross_layer_gradients": false,
+    "g_init": 0.3333333333333333,
+    "g_constraint": "none",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant",
+    "curve_steps": [
+      304,
+      607,
+      911,
+      1214,
+      1518,
+      1821,
+      2125,
+      2428,
+      2732,
+      3035
+    ],
+    "curve_val_windows": 500,
+    "curve_subset": "first quarter of fixed val windows; no respacing",
+    "eval_seconds_scope": "curve subset preparation, curve evaluations and all final evaluations",
+    "attention": {
+      "source_layer": 1,
+      "target_layer": 2,
+      "heads": 4,
+      "head_dim": 64,
+      "rope_base": 10000,
+      "rope_pairs": "interleaved",
+      "causal": true,
+      "window": 128,
+      "biases": false,
+      "dropout": 0,
+      "output_init": "zero",
+      "qkv_init": "normal / sqrt(256)",
+      "W2_extra_init": "normal / sqrt(1024)",
+      "separate_generator_seed": 3188606,
+      "local_loss": "layer 2 own CE only; layer 1 input detached",
+      "original_EMAs_and_lags_retained": true
+    }
+  },
+  "iter27_reference": {
+    "val_loss": 1.45627,
+    "test_loss": 1.3232,
+    "renamed_loss": 1.6232
+  },
+  "iter24_reference": {
+    "val_loss": 1.46686,
+    "test_loss": 1.332,
+    "renamed_loss": 1.6298
+  },
+  "iter22_reference": {
+    "test_loss": 1.3568,
+    "renamed_loss": 1.6462
+  },
+  "iter23_reference": {
+    "test_loss": 1.353,
+    "renamed_loss": 1.643
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": true,
+    "val": true,
+    "test": true,
+    "renamed": true
+  }
+}

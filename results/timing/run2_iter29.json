@@ -1,0 +1,235 @@
+{
+  "checks": {
+    "matches": true,
+    "gate_finite_difference": true,
+    "causality": true,
+    "widths": [
+      256,
+      256,
+      320
+    ],
+    "shapes_and_zero_states": true,
+    "lag_rows_zero": true,
+    "gates_zero_init": true,
+    "initial_non_gate_equal_iter27": true,
+    "initial_copy_gate_equal_iter27": true,
+    "initial_rng": true,
+    "initial_logits_equal_iter27": true,
+    "initial_forward_atol": 1e-06,
+    "input_blocks": true,
+    "all_layer_causality": true,
+    "local_autograd": true,
+    "local_autograd_max_abs_error": {
+      "W1": 6.938893903907228e-18,
+      "b1": 2.7755575615628914e-17,
+      "R1": 1.3877787807814457e-17,
+      "c1": 5.551115123125783e-17,
+      "G1": 1.179069862577986e-18,
+      "d1": 2.168404344971009e-18,
+      "W2": 5.204170427930421e-18,
+      "b2": 2.7755575615628914e-17,
+      "R2": 3.469446951953614e-18,
+      "c2": 5.551115123125783e-17,
+      "G2": 8.673617379884035e-19,
+      "d2": 3.469446951953614e-18
+    },
+    "train_gradient": true,
+    "gate_lr_fraction": 0.1,
+    "first_step_equals_iter27": true,
+    "layer0_equals_iter27": true,
+    "schedule_values": true,
+    "scheduled_lr_applied": true,
+    "order_interleaved": true,
+    "order_events": [
+      "activate 0",
+      "update 0",
+      "activate 1",
+      "update 1",
+      "activate 2",
+      "update 2",
+      "gate",
+      "update g"
+    ],
+    "state_untouched": true
+  },
+  "novel_first_loss": 5.631583475425524,
+  "novel_repeat_loss": 1.7296730898233987,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.3835534672737122,
+  "renamed_loss_nocopy": 1.7247028841972352,
+  "val_loss_nocopy": 1.5400813703536986,
+  "per_layer_test_loss": [
+    1.6442037696838379,
+    1.443535038948059,
+    1.3855222640037537
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.8758144378662109,
+    "L1": 0.015163471922278404,
+    "L2": 0.019768331199884415,
+    "L4": 0.023576291278004646,
+    "L8": 0.06567773967981339
+  },
+  "ema_gate_test": {
+    "layer1": {
+      "mean": [
+        0.6741246581077576,
+        0.10242122411727905,
+        0.2234542965888977
+      ],
+      "std": [
+        0.19227659702301025,
+        0.09536237269639969,
+        0.15496785938739777
+      ]
+    },
+    "layer2": {
+      "mean": [
+        0.5840477347373962,
+        0.10436137765645981,
+        0.31159088015556335
+      ],
+      "std": [
+        0.10670900344848633,
+        0.06638118624687195,
+        0.08419967442750931
+      ]
+    }
+  },
+  "saturated_fraction_test": [
+    0.01540286373347044,
+    0.41240260004997253,
+    0.5997071862220764
+  ],
+  "test_loss": 1.3159806747436524,
+  "renamed_loss": 1.6140066213607789,
+  "renamed_gap": 0.29802594661712645,
+  "val_loss": 1.448546664237976,
+  "g": [
+    -0.07644883543252945,
+    0.2960711419582367,
+    0.8043258786201477
+  ],
+  "train_seconds": 92.32990900000004,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 167.74169921875,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "variant": "gates320",
+    "base": "iter27 + iter26 EMA gates",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "widths": [
+      256,
+      256,
+      320
+    ],
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "constant for s <= .75*S, then cosine to lr_final at s = S (1-indexed)",
+    "lr_applies_to": "network including g; EMA gates 0.1x network; copy gate constant",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "ema_gate": "pi=softmax(lower @ G + d), one per position, each EMA block scaled by 3*pi_k; G,d zero-init; layer-local exact gradient",
+    "ema_gate_layers": [
+      1,
+      2
+    ],
+    "ema_gate_shapes": {
+      "G": [
+        256,
+        3
+      ],
+      "d": [
+        3
+      ]
+    },
+    "ema_gate_lr_fraction": 0.1,
+    "final_logits": "learned g mix",
+    "gate_input": "old-weight mixed probabilities",
+    "update_order": "per-layer during forward sweep; copy gate, then g",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant"
+  },
+  "iter27_reference": {
+    "val_loss": 1.45627,
+    "test_loss": 1.3232,
+    "renamed_loss": 1.6232
+  },
+  "iter24_reference": {
+    "val_loss": 1.46686,
+    "test_loss": 1.332,
+    "renamed_loss": 1.6298
+  },
+  "iter22_reference": {
+    "test_loss": 1.3568,
+    "renamed_loss": 1.6462
+  },
+  "iter23_reference": {
+    "test_loss": 1.353,
+    "renamed_loss": 1.643
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": false,
+    "val": true,
+    "test": true,
+    "renamed": true
+  }
+}

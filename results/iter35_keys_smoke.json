@@ -1,0 +1,461 @@
+{
+  "mode": "keys",
+  "smoke": 204800,
+  "comparable_full_run": false,
+  "val": 1.7966386079788208,
+  "test": 1.6955326795578003,
+  "renamed": 1.9468190670013428,
+  "test_nocopy": 1.929198980331421,
+  "val_loss": 1.7966386079788208,
+  "test_loss": 1.6955326795578003,
+  "renamed_loss": 1.9468190670013428,
+  "test_loss_nocopy": 1.929198980331421,
+  "renamed_gap": 0.2512863874435425,
+  "train_seconds": 2.914906499998324,
+  "eval_seconds": 0.8247661000023072,
+  "peak_allocated_mib": {
+    "train": 131.619140625,
+    "eval": 97.28955078125
+  },
+  "peak_allocated_mib_train": 131.619140625,
+  "peak_allocated_mib_eval": 97.28955078125,
+  "memory_bytes": {
+    "raw1": {
+      "counts": 37248
+    },
+    "raw2": {
+      "counts": 3613056
+    },
+    "raw3": {
+      "counts": 2097152,
+      "tags": 2097152,
+      "character_indices": 768
+    },
+    "raw4": {
+      "counts": 4194304,
+      "tags": 4194304,
+      "character_indices": 768
+    },
+    "raw8": {
+      "counts": 4194304,
+      "tags": 4194304,
+      "character_indices": 768
+    },
+    "raw16": {
+      "counts": 4194304,
+      "tags": 4194304,
+      "character_indices": 768
+    },
+    "raw32": {
+      "counts": 4194304,
+      "tags": 4194304,
+      "character_indices": 768
+    },
+    "wordshape": {
+      "counts": 1048576,
+      "tags": 1048576,
+      "character_indices": 768
+    },
+    "clock1": {
+      "counts": 1048576,
+      "tags": 1048576,
+      "character_indices": 768
+    },
+    "clock3": {
+      "counts": 1048576,
+      "tags": 1048576,
+      "character_indices": 768
+    },
+    "key8": {
+      "counts": 98304
+    },
+    "key12": {
+      "counts": 1572864
+    },
+    "key16": {
+      "counts": 1048576,
+      "tags": 1048576,
+      "character_indices": 768
+    },
+    "unigram": {
+      "counts": 384
+    },
+    "shared_write_scratch": {
+      "indices": 4194304
+    },
+    "character_classes": {
+      "word": 97
+    },
+    "mixer": {
+      "parameters.char": 7372,
+      "parameters.pair": 38912,
+      "parameters.confidence": 152,
+      "adam_m.char": 7372,
+      "adam_m.pair": 38912,
+      "adam_m.confidence": 152,
+      "adam_v.char": 7372,
+      "adam_v.pair": 38912,
+      "adam_v.confidence": 152
+    },
+    "keys_net": {
+      "parameters.A0": 37632,
+      "parameters.A1": 37632,
+      "parameters.A2": 37632,
+      "parameters.A3": 37632,
+      "parameters.A4": 37632,
+      "parameters.A5": 37632,
+      "parameters.P0": 6144,
+      "parameters.P1": 6144,
+      "parameters.P2": 6144,
+      "parameters.b": 384,
+      "parameters.R": 36864,
+      "parameters.c": 384,
+      "adam_m.A0": 37632,
+      "adam_m.A1": 37632,
+      "adam_m.A2": 37632,
+      "adam_m.A3": 37632,
+      "adam_m.A4": 37632,
+      "adam_m.A5": 37632,
+      "adam_m.P0": 6144,
+      "adam_m.P1": 6144,
+      "adam_m.P2": 6144,
+      "adam_m.b": 384,
+      "adam_m.R": 36864,
+      "adam_m.c": 384,
+      "adam_v.A0": 37632,
+      "adam_v.A1": 37632,
+      "adam_v.A2": 37632,
+      "adam_v.A3": 37632,
+      "adam_v.A4": 37632,
+      "adam_v.A5": 37632,
+      "adam_v.P0": 6144,
+      "adam_v.P1": 6144,
+      "adam_v.P2": 6144,
+      "adam_v.b": 384,
+      "adam_v.R": 36864,
+      "adam_v.c": 384,
+      "embedding": 6272,
+      "projection": 6144,
+      "ema_matrix": 196608,
+      "bitweights": 128
+    },
+    "total_persistent": 56854541
+  },
+  "flops_per_char_estimate": {
+    "iter35": 137316,
+    "iter35_matmul": 105828,
+    "iter35_elementwise_allowance": 31488,
+    "iter35_by_structure": {
+      "logistic_pool_and_local_derivative": 7296,
+      "confidence_and_weight_derivatives": 228,
+      "fixed_class_ema": 12288,
+      "local_projection_and_derivative": 27648,
+      "local_readout_and_derivative": 55296,
+      "sign_projection": 3072
+    },
+    "iter30_backprop": 7188480,
+    "iter30_bp_forward_by_structure": {
+      "layer0_ema": 24576,
+      "layer0_projection": 49152,
+      "layer0_readout": 49152,
+      "layer1_ema": 196608,
+      "layer1_projection": 786432,
+      "layer1_readout": 49152,
+      "layer2_ema": 196608,
+      "layer2_projection": 983040,
+      "layer2_readout": 61440
+    },
+    "convention": "2 FLOPs per multiply-add; BP = 3x actual dense forward matmuls; copy heads use comparison/scatter, no matmul; integer hashing, atomics, exp/log, optimizer and CPU operations not counted; iter35 adds a scalar arithmetic allowance; this is not wall time"
+  },
+  "stale_fraction": 0.999755859375,
+  "stale_fraction_context": 0.998603515625,
+  "stale_fraction_by_structure": {
+    "raw1": 0.980546875,
+    "raw2": 0.8283984375,
+    "raw3": 0.59509765625,
+    "raw4": 0.4544189453125,
+    "raw8": 0.2265283203125,
+    "raw16": 0.074384765625,
+    "raw32": 0.016962890625,
+    "wordshape": 0.6767919921875,
+    "clock1": 0.37896484375,
+    "clock3": 0.2191162109375,
+    "key8": 0.9922412109375,
+    "key12": 0.9769873046875,
+    "key16": 0.9560107421875,
+    "any_context": 0.998603515625,
+    "including_unigram": 0.999755859375
+  },
+  "stale_definition": "Fraction of scored positions with an earlier valid write in the same chunk to the same semantic context; primary fraction includes shared unigram. Per-structure values exclude incidental hash collision/eviction effects. Copy heads still see j<t in-window.",
+  "val_curve": [
+    {
+      "fraction": 0.1,
+      "chars": 20480,
+      "train_seconds": 0.30210389999956533,
+      "val_subset": 1.9143177270889282
+    },
+    {
+      "fraction": 0.2,
+      "chars": 40960,
+      "train_seconds": 0.5681509999994887,
+      "val_subset": 1.9367859363555908
+    },
+    {
+      "fraction": 0.3,
+      "chars": 61440,
+      "train_seconds": 0.8386148999979923,
+      "val_subset": 1.944053053855896
+    },
+    {
+      "fraction": 0.4,
+      "chars": 81920,
+      "train_seconds": 1.106307599999127,
+      "val_subset": 1.8331670761108398
+    },
+    {
+      "fraction": 0.5,
+      "chars": 102400,
+      "train_seconds": 1.3777098999998998,
+      "val_subset": 1.8528289794921875
+    },
+    {
+      "fraction": 0.6,
+      "chars": 122880,
+      "train_seconds": 1.7645990000000893,
+      "val_subset": 1.77434504032135
+    },
+    {
+      "fraction": 0.7,
+      "chars": 143360,
+      "train_seconds": 2.031816799999433,
+      "val_subset": 1.777178168296814
+    },
+    {
+      "fraction": 0.8,
+      "chars": 163840,
+      "train_seconds": 2.371404999999868,
+      "val_subset": 1.7730050086975098
+    },
+    {
+      "fraction": 0.9,
+      "chars": 184320,
+      "train_seconds": 2.6433603999994375,
+      "val_subset": 1.7495677471160889
+    },
+    {
+      "fraction": 1.0,
+      "chars": 204800,
+      "train_seconds": 2.91488869999921,
+      "val_subset": 1.7636232376098633
+    }
+  ],
+  "curve": [
+    {
+      "fraction": 0.1,
+      "chars": 20480,
+      "train_seconds": 0.30210389999956533,
+      "val_subset": 1.9143177270889282
+    },
+    {
+      "fraction": 0.2,
+      "chars": 40960,
+      "train_seconds": 0.5681509999994887,
+      "val_subset": 1.9367859363555908
+    },
+    {
+      "fraction": 0.3,
+      "chars": 61440,
+      "train_seconds": 0.8386148999979923,
+      "val_subset": 1.944053053855896
+    },
+    {
+      "fraction": 0.4,
+      "chars": 81920,
+      "train_seconds": 1.106307599999127,
+      "val_subset": 1.8331670761108398
+    },
+    {
+      "fraction": 0.5,
+      "chars": 102400,
+      "train_seconds": 1.3777098999998998,
+      "val_subset": 1.8528289794921875
+    },
+    {
+      "fraction": 0.6,
+      "chars": 122880,
+      "train_seconds": 1.7645990000000893,
+      "val_subset": 1.77434504032135
+    },
+    {
+      "fraction": 0.7,
+      "chars": 143360,
+      "train_seconds": 2.031816799999433,
+      "val_subset": 1.777178168296814
+    },
+    {
+      "fraction": 0.8,
+      "chars": 163840,
+      "train_seconds": 2.371404999999868,
+      "val_subset": 1.7730050086975098
+    },
+    {
+      "fraction": 0.9,
+      "chars": 184320,
+      "train_seconds": 2.6433603999994375,
+      "val_subset": 1.7495677471160889
+    },
+    {
+      "fraction": 1.0,
+      "chars": 204800,
+      "train_seconds": 2.91488869999921,
+      "val_subset": 1.7636232376098633
+    }
+  ],
+  "targets": {
+    "test": {
+      "value": 1.6955326795578003,
+      "threshold": 1.2562,
+      "comparison": "<",
+      "pass_observed": false,
+      "pass_full_run": null
+    },
+    "renamed": {
+      "value": 1.9468190670013428,
+      "threshold": 1.5714,
+      "comparison": "<",
+      "pass_observed": false,
+      "pass_full_run": null
+    },
+    "val": {
+      "value": 1.7966386079788208,
+      "threshold": 1.3869,
+      "comparison": "<",
+      "pass_observed": false,
+      "pass_full_run": null
+    },
+    "train_seconds": {
+      "value": 2.914906499998324,
+      "threshold": 79.4,
+      "comparison": "<",
+      "pass_observed": true,
+      "pass_full_run": null
+    },
+    "peak_allocated_mib": {
+      "value": 131.619140625,
+      "threshold": 151.0,
+      "comparison": "<",
+      "pass_observed": true,
+      "pass_full_run": null
+    },
+    "flops_per_char_estimate": {
+      "value": 137316,
+      "threshold": 7188480,
+      "comparison": "<",
+      "pass_observed": true,
+      "pass_full_run": null
+    }
+  },
+  "checks": {
+    "causality": true,
+    "all_experts_causal": true,
+    "chunk1_exact_dict": true,
+    "deterministic_collision_writes": true,
+    "bounded_structures": true,
+    "no_autograd": true,
+    "local_finite_difference_max_error": 5.769467514848969e-09,
+    "normalized_key_renaming_invariance": true
+  },
+  "all_targets_pass": null,
+  "chars": 204800,
+  "steps": 50,
+  "novel_first_loss": 6.556597697138787,
+  "novel_repeat_loss": 4.056047399838765,
+  "novel_counts": {
+    "first": 100,
+    "repeat": 12
+  },
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "keys",
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 204800,
+    "chunk_size": 4096,
+    "input_window": 128,
+    "cpu_streamed_training": true,
+    "sampling": "iter17/iter30 non-overlapping target windows; CPU randperm seed; row-major chunk reads then writes",
+    "evaluation_frozen": true,
+    "eval_windows": 16,
+    "evaluation_functions": [
+      "iter5.evaluate (iter30 I.evaluate)",
+      "iter30.evaluate_subset",
+      "iter15.novel"
+    ],
+    "curve_subset": "first quarter of fixed validation windows; no respacing",
+    "curve_milestones": "first completed chunk at/after each 10% of targets",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "raw_orders": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "experts": [
+      "unigram",
+      "raw1",
+      "raw2",
+      "raw3",
+      "raw4",
+      "raw8",
+      "raw16",
+      "raw32",
+      "wordshape",
+      "clock1",
+      "clock3",
+      "key8",
+      "key12",
+      "key16",
+      "local_net",
+      "copy1",
+      "copy2",
+      "copy4",
+      "copy8"
+    ],
+    "key_bits": [
+      8,
+      12,
+      16
+    ],
+    "key_inputs": "ASCII word chars share one symbol; six lags + three EMAs",
+    "key_loss": "own raw-character CE only; manual exact derivative",
+    "key_net_width": 96,
+    "key_lr": ".001 hold 75%, cosine to .0001",
+    "mixer_lr": 0.005,
+    "mixer": "local log-linear pool; char and pair rows; log count / max prob features",
+    "collision": "31-bit tag; max tag wins a chunk collision; replace then add",
+    "count_dtype": "int32; bounded by single-pass char count <2^31",
+    "copy_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "probability_floor": 1e-06,
+    "nocopy": "replace copy experts with highest lexical expert; frozen mixer",
+    "surprise": "old exact bigram probability of observed input; thresholds 1/3; two iter10 three-event hashes",
+    "word_context": "normalized 8-char shape + current run length (cap 15) + delimiter",
+    "metric_note": "novel: iter15/iter30 aligned changed targets, maximal ASCII runs in a window; repeat requires an earlier complete run; README attributes earlier first/repeat observations to iter12",
+    "train_seconds_scope": "CPU batch assembly/transfers, scoring, local updates, memory writes and stale diagnostics; excludes eval/setup/checks",
+    "memory_scope": "CUDA max allocated, separately sampled for train and eval; persistent bytes separate from transient working set"
+  }
+}

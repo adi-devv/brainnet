@@ -1,0 +1,188 @@
+{
+  "checks": {
+    "matches": true,
+    "gate_finite_difference": true,
+    "causality": true,
+    "initial_params_equal_iter24": true,
+    "initial_rng": true,
+    "layer0_equal_iter24": true,
+    "input_blocks": true,
+    "layer_causality": true,
+    "upper_local_autograd": true,
+    "local_autograd_max_abs_error": {
+      "R1": 4.163336342344337e-17,
+      "c1": 0.0,
+      "b1": 1.3877787807814457e-17,
+      "W1": 4.163336342344337e-17,
+      "R2": 2.7755575615628914e-17,
+      "c2": 1.3877787807814457e-17,
+      "b2": 4.336808689942018e-19,
+      "W2": 3.469446951953614e-17
+    },
+    "manual_training": true,
+    "order_equals_batch": true,
+    "order_batches": 3,
+    "order_events": [
+      "activate 0",
+      "update 0",
+      "activate 1",
+      "update 1",
+      "activate 2",
+      "update 2",
+      "gate",
+      "g"
+    ],
+    "schedule_values": true,
+    "hold_steps": 2276,
+    "decay_steps": 759,
+    "equals_unscheduled_while_held": true,
+    "scheduled_lr_applied": {
+      "2277": 0.0009999978302633091,
+      "3035": 0.0001
+    },
+    "gate_lr_independent": true,
+    "state_untouched": true
+  },
+  "novel_first_loss": 5.726651887386901,
+  "novel_repeat_loss": 1.7191686654725469,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "test_loss_nocopy": 1.4132959780693055,
+  "renamed_loss_nocopy": 1.7561950068473815,
+  "per_layer_test_loss": [
+    1.644203790664673,
+    1.4667902483940125,
+    1.414021994113922
+  ],
+  "mean_gate_weight_test": {
+    "net": 0.8738872408866882,
+    "L1": 0.013084588572382927,
+    "L2": 0.021051188930869102,
+    "L4": 0.02449554018676281,
+    "L8": 0.06748149544000626
+  },
+  "upper_activation_val": {
+    "layer1": {
+      "tanh_saturated_fraction": 0.3771868438720703,
+      "mean_derivative": 0.28708338702243497,
+      "mean_abs_h": 0.9088455592953759,
+      "max_abs_h": 1.8946545124053955
+    },
+    "layer2": {
+      "tanh_saturated_fraction": 0.5766234741210937,
+      "mean_derivative": 0.19690314737322506,
+      "mean_abs_h": 1.0223646283201913,
+      "max_abs_h": 1.9869885444641113
+    }
+  },
+  "test_loss": 1.3435277895927429,
+  "renamed_loss": 1.643421314716339,
+  "renamed_gap": 0.2998935251235961,
+  "val_loss": 1.480337453842163,
+  "g": [
+    -0.10065534710884094,
+    0.3853110373020172,
+    0.7402904629707336
+  ],
+  "train_seconds": 98.02819739999995,
+  "chars": 6215526,
+  "steps": 3035,
+  "peak_allocated_mib": 161.03955078125,
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "copy",
+    "variant": "softtanh",
+    "base": "iter24",
+    "bs": 16,
+    "T": 128,
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "smoke": null,
+    "eval_windows": 2000,
+    "sampling": "non-overlapping target windows, shuffled with CPU generator seed 0",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "evaluation_frozen": true,
+    "D": 256,
+    "layers": 3,
+    "embedding_width": 32,
+    "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decays": [
+      0.5,
+      0.8,
+      0.95
+    ],
+    "layer_input_width": 1536,
+    "state_lags": [
+      1,
+      2
+    ],
+    "lr": 0.001,
+    "lr_final": 0.0001,
+    "lr_hold_fraction": 0.75,
+    "lr_schedule": "constant for s <= .75*S, then cosine to lr_final at s = S (1-indexed)",
+    "lr_applies_to": "all network parameters including g",
+    "optimizer": "manual Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "gradient_clip_norm": 1,
+    "weight_decay": 0,
+    "activation": {
+      "layer0": "tanh(a)",
+      "layer1": ".95*tanh(a)+.05*a",
+      "layer2": ".95*tanh(a)+.05*a",
+      "upper_derivative": ".95*(1-tanh(a)**2)+.05; cached tanh(a)",
+      "saturation_threshold": 0.99,
+      "statistics_split": "validation"
+    },
+    "update_order": "per-layer during forward sweep; gate and g after",
+    "suffix_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "gate_lr": 0.01,
+    "gate_lr_schedule": "constant"
+  },
+  "iter24_reference": {
+    "val_loss": 1.46686,
+    "test_loss": 1.332,
+    "renamed_loss": 1.6298
+  },
+  "iter22_reference": {
+    "test_loss": 1.3568,
+    "renamed_loss": 1.6462
+  },
+  "iter23_reference": {
+    "test_loss": 1.353,
+    "renamed_loss": 1.643
+  },
+  "same_sampler_backprop_reference": {
+    "test_loss": 1.340673,
+    "renamed_loss": 1.686344
+  },
+  "pass": {
+    "train": false,
+    "test": false,
+    "renamed": true
+  }
+}
