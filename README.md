@@ -102,3 +102,16 @@ What this says:
 - Wall time is only 1.2x faster than backprop despite 248x fewer FLOPs. The time goes to hashing, gathers, sync and diagnostics, not arithmetic.
 - Caveats: one seed, 6.2M chars, and the test set is development data. Count models are known to be strong at small data, and backprop may close the gap at scale (Astra's review, `briefs/iter37_astra_out.md`). A data-scaling screen against matched and larger backprop models is the decisive next test.
 - Iter 36 (`roles.py`, identifiers keyed by causal role for the renamed gap) is built but not yet run.
+
+## Findings (iterations 38-39: compact associative storage, 64 MiB, one pass, seed 0)
+
+| Method | Test | Renamed | Val | Time | Peak memory |
+|---|---|---|---|---|---|
+| Iter 38: compact 4-way, doorkeeper admission | 1.200 | 1.559 | 1.325 | 209.6 s | 116 MiB |
+| Iter 38: compact, no admission | 1.187 | 1.561 | 1.306 | 194.4 s | 117 MiB |
+| **Iter 38: compact, no admission, no aging** | **1.171** | **1.545** | **1.277** | 193.3 s | **117 MiB** |
+| Iter 39: vectorized write + deterministic mixer sums | 1.171 | 1.545 | 1.277 | 221.9 s | 117 MiB |
+
+- Compact no-aging storage beats BP (1.256 / 1.571) and 16x tables (1.177 / 1.544) on test, at 117 MiB versus 151 MiB.
+- Iter 39 is bit-exact with iter38. The write is 2x faster in a smoke run, but the full run is still 222 s. Per-table, launch-bound writes and reads dominate. Iter 39 also fixes a flaky determinism check: CUDA float `index_add_` atomics in the mixer gradients were replaced with a sorted segment reduce.
+- Next: fuse all sparse tables into one flat store (one gather and one scatter per chunk) to reach <=67 s.
