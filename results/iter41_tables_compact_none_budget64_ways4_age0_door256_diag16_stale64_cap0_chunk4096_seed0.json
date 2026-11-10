@@ -1,0 +1,979 @@
+{
+  "mode": "tables",
+  "tag": "tables_compact_none_budget64_ways4_age0_door256_diag16_stale64_cap0_chunk4096_seed0",
+  "smoke": null,
+  "comparable_full_run": true,
+  "val": 1.2769815154075623,
+  "test": 1.1712950946092606,
+  "renamed": 1.5450188283920288,
+  "test_nocopy": 1.243102661728859,
+  "val_loss": 1.2769815154075623,
+  "test_loss": 1.1712950946092606,
+  "renamed_loss": 1.5450188283920288,
+  "test_loss_nocopy": 1.243102661728859,
+  "renamed_gap": 0.37372373378276813,
+  "train_seconds": 65.51858329999595,
+  "eval_seconds": 20.76408519999677,
+  "train_seconds_with_stale_diagnostics": 65.72898229999919,
+  "train_seconds_with_allocation": 71.25635229999534,
+  "train_seconds_with_all_diagnostics_and_allocation": 71.47446829999899,
+  "stale_diagnostics_seconds": 0.21039900000323541,
+  "final_diagnostics_seconds": 0.007717000000411645,
+  "allocation": {
+    "strategy": "one-shot allocation after replayed first-10% storage probe",
+    "warmup_chars": 621553,
+    "warmup_steps": 152,
+    "warmup_seconds": 5.619049400000222,
+    "allocation_seconds": 5.737768999999389,
+    "warmup_diagnostics": {
+      "raw1": {
+        "hit_rate": 0.6611494097793311,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 2469758,
+        "eviction_count": 0,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "final_occupancy": 4404,
+        "slots": 9312,
+        "occupancy_fraction": 0.4729381443298969,
+        "bytes": 37280
+      },
+      "raw2": {
+        "hit_rate": 0.31836633514939694,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 1189274,
+        "eviction_count": 0,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "final_occupancy": 29607,
+        "slots": 903264,
+        "occupancy_fraction": 0.03277779253905835,
+        "bytes": 3613088
+      },
+      "raw3": {
+        "hit_rate": 0.20014016670093202,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 747634,
+        "eviction_count": 5480,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 70864,
+        "slots": 131072,
+        "occupancy_fraction": 0.5406494140625,
+        "sampled_useful_live_entries": 484,
+        "useful_entries_estimate": 30976,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 397112
+      },
+      "raw4": {
+        "hit_rate": 0.15957855760005482,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 596114,
+        "eviction_count": 5452,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 123040,
+        "slots": 262144,
+        "occupancy_fraction": 0.4693603515625,
+        "sampled_useful_live_entries": 486,
+        "useful_entries_estimate": 31104,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 792376
+      },
+      "raw8": {
+        "hit_rate": 0.0784826445997807,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 293176,
+        "eviction_count": 86174,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 226944,
+        "slots": 262144,
+        "occupancy_fraction": 0.86572265625,
+        "sampled_useful_live_entries": 244,
+        "useful_entries_estimate": 15616,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 792376
+      },
+      "raw16": {
+        "hit_rate": 0.032726354766310306,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 122251,
+        "eviction_count": 363628,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 131049,
+        "slots": 131072,
+        "occupancy_fraction": 0.9998245239257812,
+        "sampled_useful_live_entries": 84,
+        "useful_entries_estimate": 5376,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 397112
+      },
+      "raw32": {
+        "hit_rate": 0.025393569678591008,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 94859,
+        "eviction_count": 448732,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 1,
+        "aged_out_entries": 0,
+        "final_occupancy": 131069,
+        "slots": 131072,
+        "occupancy_fraction": 0.9999771118164062,
+        "sampled_useful_live_entries": 36,
+        "useful_entries_estimate": 2304,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 397112
+      },
+      "wordshape": {
+        "hit_rate": 0.35975298965186403,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 1343876,
+        "eviction_count": 864,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 80236,
+        "slots": 262144,
+        "occupancy_fraction": 0.3060760498046875,
+        "sampled_useful_live_entries": 424,
+        "useful_entries_estimate": 27136,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 792376
+      },
+      "clock1": {
+        "hit_rate": 0.0652904845120614,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 243896,
+        "eviction_count": 50507,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 113501,
+        "slots": 131072,
+        "occupancy_fraction": 0.8659439086914062,
+        "sampled_useful_live_entries": 529,
+        "useful_entries_estimate": 33856,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 397112
+      },
+      "clock3": {
+        "hit_rate": 0.02911965888843202,
+        "sampled_read_pairs": 3735552,
+        "sampled_hits": 108778,
+        "eviction_count": 293687,
+        "write_events": 621553,
+        "admitted_events": 621553,
+        "admitted_fraction": 1.0,
+        "chunk_collision_dropped_events": 0,
+        "aged_out_entries": 0,
+        "final_occupancy": 130989,
+        "slots": 131072,
+        "occupancy_fraction": 0.9993667602539062,
+        "sampled_useful_live_entries": 133,
+        "useful_entries_estimate": 8512,
+        "useful_slot_sampling_stride": 64,
+        "read_context_sampling_stride": 16,
+        "bytes": 397112
+      }
+    },
+    "allocation_weights": {
+      "raw3": 30976,
+      "raw4": 31104,
+      "raw8": 15616,
+      "raw16": 5376,
+      "raw32": 2304,
+      "wordshape": 27136,
+      "clock1": 33856,
+      "clock3": 8512
+    },
+    "probe_slots": {
+      "raw3": 131072,
+      "raw4": 262144,
+      "raw8": 262144,
+      "raw16": 131072,
+      "raw32": 131072,
+      "wordshape": 262144,
+      "clock1": 131072,
+      "clock3": 131072
+    },
+    "final_slots": {
+      "raw3": 4194304,
+      "raw4": 4194304,
+      "raw8": 2097152,
+      "raw16": 524288,
+      "raw32": 524288,
+      "wordshape": 4194304,
+      "clock1": 4194304,
+      "clock3": 1048576
+    },
+    "budget_bytes": 67108864,
+    "planned_persistent_bytes": 67018301,
+    "unused_budget_bytes": 90563,
+    "note": "Main pass restarts empty with original RNG; probe is extra work. No full-key hashes stored and no online rehash. Zero-use tables get weight 1."
+  },
+  "storage_options": {
+    "storage": "compact",
+    "admit": "none",
+    "budget_mib": 64.0,
+    "ways": 4,
+    "age_chunks": 0,
+    "door_reset_chunks": 256,
+    "diag_every": 16,
+    "stale_every": 64
+  },
+  "iter40_bit_exact_reference": {
+    "applicable": true,
+    "expected": {
+      "val": 1.2769815154075623,
+      "test": 1.1712950946092606,
+      "renamed": 1.5450188283920288
+    }
+  },
+  "diagnostics": {
+    "raw1": {
+      "hit_rate": 0.8127314087845027,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 30309446,
+      "eviction_count": 0,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "final_occupancy": 6202,
+      "slots": 9312,
+      "occupancy_fraction": 0.6660223367697594,
+      "bytes": 37280
+    },
+    "raw2": {
+      "hit_rate": 0.46593051322446233,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 17376092,
+      "eviction_count": 0,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "final_occupancy": 62838,
+      "slots": 903264,
+      "occupancy_fraction": 0.06956770113720906,
+      "bytes": 3613088
+    },
+    "raw3": {
+      "hit_rate": 0.30581907018609666,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 11405006,
+      "eviction_count": 4,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 212648,
+      "slots": 4194304,
+      "occupancy_fraction": 0.05069923400878906,
+      "sampled_useful_live_entries": 1903,
+      "useful_entries_estimate": 121792,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 12650296
+    },
+    "raw4": {
+      "hit_rate": 0.2416057603036169,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 9010279,
+      "eviction_count": 122,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 438280,
+      "slots": 4194304,
+      "occupancy_fraction": 0.10449409484863281,
+      "sampled_useful_live_entries": 2644,
+      "useful_entries_estimate": 169216,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 12650296
+    },
+    "raw8": {
+      "hit_rate": 0.13265491142218744,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 4947141,
+      "eviction_count": 225793,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 1446821,
+      "slots": 2097152,
+      "occupancy_fraction": 0.6898980140686035,
+      "sampled_useful_live_entries": 2890,
+      "useful_entries_estimate": 184960,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 6326072
+    },
+    "raw16": {
+      "hit_rate": 0.05855183899997941,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 2183592,
+      "eviction_count": 3515771,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 524288,
+      "slots": 524288,
+      "occupancy_fraction": 1.0,
+      "sampled_useful_live_entries": 1039,
+      "useful_entries_estimate": 66496,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 1582904
+    },
+    "raw32": {
+      "hit_rate": 0.04417926195452954,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 1647591,
+      "eviction_count": 4715893,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 1,
+      "aged_out_entries": 0,
+      "final_occupancy": 524288,
+      "slots": 524288,
+      "occupancy_fraction": 1.0,
+      "sampled_useful_live_entries": 490,
+      "useful_entries_estimate": 31360,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 1582904
+    },
+    "wordshape": {
+      "hit_rate": 0.5163863429453517,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 19257757,
+      "eviction_count": 20,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 312524,
+      "slots": 4194304,
+      "occupancy_fraction": 0.07451152801513672,
+      "sampled_useful_live_entries": 1841,
+      "useful_entries_estimate": 117824,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 12650296
+    },
+    "clock1": {
+      "hit_rate": 0.14767457500154452,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 5507274,
+      "eviction_count": 188,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 484268,
+      "slots": 4194304,
+      "occupancy_fraction": 0.11545848846435547,
+      "sampled_useful_live_entries": 3644,
+      "useful_entries_estimate": 233216,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 12650296
+    },
+    "clock3": {
+      "hit_rate": 0.06822435078976091,
+      "sampled_read_pairs": 37293312,
+      "sampled_hits": 2544312,
+      "eviction_count": 1472583,
+      "write_events": 6215526,
+      "admitted_events": 6215526,
+      "admitted_fraction": 1.0,
+      "chunk_collision_dropped_events": 0,
+      "aged_out_entries": 0,
+      "final_occupancy": 1036766,
+      "slots": 1048576,
+      "occupancy_fraction": 0.9887371063232422,
+      "sampled_useful_live_entries": 2840,
+      "useful_entries_estimate": 181760,
+      "useful_slot_sampling_stride": 64,
+      "read_context_sampling_stride": 16,
+      "bytes": 3163960
+    }
+  },
+  "persistent_bytes_per_table": {
+    "raw1": 37280,
+    "raw2": 3613088,
+    "raw3": 12650296,
+    "raw4": 12650296,
+    "raw8": 6326072,
+    "raw16": 1582904,
+    "raw32": 1582904,
+    "wordshape": 12650296,
+    "clock1": 12650296,
+    "clock3": 3163960
+  },
+  "references": {
+    "bp_test": 1.2562,
+    "bp_renamed": 1.5714,
+    "bp_peak_mib": 151,
+    "tables16x_test": 1.1768,
+    "tables16x_renamed": 1.5441
+  },
+  "peak_allocated_mib": {
+    "train": 120.7001953125,
+    "eval": 95.43115234375
+  },
+  "peak_allocated_mib_train": 120.7001953125,
+  "peak_allocated_mib_eval": 95.43115234375,
+  "memory_bytes": {
+    "raw1": {
+      "counts": 37248,
+      "diagnostics": 32
+    },
+    "raw2": {
+      "counts": 3613056,
+      "diagnostics": 32
+    },
+    "raw3": {
+      "counts": 4194304,
+      "tags": 8388608,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 65536,
+      "count_decode_lut": 1024
+    },
+    "raw4": {
+      "counts": 4194304,
+      "tags": 8388608,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 65536,
+      "count_decode_lut": 1024
+    },
+    "raw8": {
+      "counts": 2097152,
+      "tags": 4194304,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 32768,
+      "count_decode_lut": 1024
+    },
+    "raw16": {
+      "counts": 524288,
+      "tags": 1048576,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 8192,
+      "count_decode_lut": 1024
+    },
+    "raw32": {
+      "counts": 524288,
+      "tags": 1048576,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 8192,
+      "count_decode_lut": 1024
+    },
+    "wordshape": {
+      "counts": 4194304,
+      "tags": 8388608,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 65536,
+      "count_decode_lut": 1024
+    },
+    "clock1": {
+      "counts": 4194304,
+      "tags": 8388608,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 65536,
+      "count_decode_lut": 1024
+    },
+    "clock3": {
+      "counts": 1048576,
+      "tags": 2097152,
+      "character_indices": 768,
+      "diagnostics": 56,
+      "useful_sample": 16384,
+      "count_decode_lut": 1024
+    },
+    "unigram": {
+      "counts": 384
+    },
+    "shared_write_scratch": {
+      "indices": 0
+    },
+    "character_classes": {
+      "word": 97
+    },
+    "mixer": {
+      "parameters.char": 5820,
+      "parameters.pair": 30720,
+      "parameters.confidence": 120,
+      "adam_m.char": 5820,
+      "adam_m.pair": 30720,
+      "adam_m.confidence": 120,
+      "adam_v.char": 5820,
+      "adam_v.pair": 30720,
+      "adam_v.confidence": 120
+    },
+    "shared_sparse_layout": {
+      "offsets_and_masks": 448
+    },
+    "total_persistent": 67018301
+  },
+  "flops_per_char_estimate": {
+    "iter35": 28980,
+    "iter35_matmul": 5940,
+    "iter35_elementwise_allowance": 23040,
+    "iter35_by_structure": {
+      "logistic_pool_and_local_derivative": 5760,
+      "confidence_and_weight_derivatives": 180
+    },
+    "iter30_backprop": 7188480,
+    "iter30_bp_forward_by_structure": {
+      "layer0_ema": 24576,
+      "layer0_projection": 49152,
+      "layer0_readout": 49152,
+      "layer1_ema": 196608,
+      "layer1_projection": 786432,
+      "layer1_readout": 49152,
+      "layer2_ema": 196608,
+      "layer2_projection": 983040,
+      "layer2_readout": 61440
+    },
+    "convention": "2 FLOPs per multiply-add; BP = 3x actual dense forward matmuls; copy heads use comparison/scatter, no matmul; integer hashing, atomics, exp/log, optimizer and CPU operations not counted; iter35 adds a scalar arithmetic allowance; this is not wall time"
+  },
+  "stale_sampled_chars": 98304,
+  "stale_sampled_chunks": 24,
+  "stale_fraction": 0.999755859375,
+  "stale_fraction_context": 0.9858805338541666,
+  "stale_fraction_by_structure": {
+    "raw1": 0.9792683919270834,
+    "raw2": 0.798248291015625,
+    "raw3": 0.5589497884114584,
+    "raw4": 0.4270731608072917,
+    "raw8": 0.205078125,
+    "raw16": 0.05938720703125,
+    "raw32": 0.013916015625,
+    "wordshape": 0.688995361328125,
+    "clock1": 0.3588460286458333,
+    "clock3": 0.22544352213541666,
+    "any_context": 0.9858805338541666,
+    "including_unigram": 0.999755859375
+  },
+  "stale_definition": "Estimated from every stale_every-th chunk, with sampled-char denominator. Fraction of scored positions with an earlier valid write in the same chunk to the same semantic context; primary fraction includes shared unigram. Per-structure values exclude incidental hash collision/eviction effects. Copy heads still see j<t in-window.",
+  "val_curve": [
+    {
+      "fraction": 0.1,
+      "chars": 622592,
+      "train_seconds": 6.748278900002333,
+      "val_subset": 1.321064136505127,
+      "train_seconds_with_stale_diagnostics": 6.776763099998789,
+      "train_seconds_with_allocation": 12.486047900001722
+    },
+    {
+      "fraction": 0.2,
+      "chars": 1245184,
+      "train_seconds": 13.362205799996445,
+      "val_subset": 1.2834488821029664,
+      "train_seconds_with_stale_diagnostics": 13.408251399992878,
+      "train_seconds_with_allocation": 19.099974799995834
+    },
+    {
+      "fraction": 0.3,
+      "chars": 1867750,
+      "train_seconds": 19.825472999997146,
+      "val_subset": 1.254223690032959,
+      "train_seconds_with_stale_diagnostics": 19.897162799996295,
+      "train_seconds_with_allocation": 25.563241999996535
+    },
+    {
+      "fraction": 0.4,
+      "chars": 2486246,
+      "train_seconds": 26.281500599998253,
+      "val_subset": 1.2418610229492189,
+      "train_seconds_with_stale_diagnostics": 26.370864299999084,
+      "train_seconds_with_allocation": 32.01926959999764
+    },
+    {
+      "fraction": 0.5,
+      "chars": 3108838,
+      "train_seconds": 32.88449849999597,
+      "val_subset": 1.2427364635467528,
+      "train_seconds_with_stale_diagnostics": 32.99103849999665,
+      "train_seconds_with_allocation": 38.62226749999536
+    },
+    {
+      "fraction": 0.6,
+      "chars": 3731430,
+      "train_seconds": 39.41967119999754,
+      "val_subset": 1.2154791831970215,
+      "train_seconds_with_stale_diagnostics": 39.55196060000162,
+      "train_seconds_with_allocation": 45.15744019999693
+    },
+    {
+      "fraction": 0.7,
+      "chars": 4354022,
+      "train_seconds": 45.94720479999887,
+      "val_subset": 1.1979189519882203,
+      "train_seconds_with_stale_diagnostics": 46.09727700000076,
+      "train_seconds_with_allocation": 51.68497379999826
+    },
+    {
+      "fraction": 0.8,
+      "chars": 4972518,
+      "train_seconds": 52.35529709999901,
+      "val_subset": 1.2039549341201783,
+      "train_seconds_with_stale_diagnostics": 52.5227272000011,
+      "train_seconds_with_allocation": 58.093066099998396
+    },
+    {
+      "fraction": 0.9,
+      "chars": 5595110,
+      "train_seconds": 59.076783599997725,
+      "val_subset": 1.204541473388672,
+      "train_seconds_with_stale_diagnostics": 59.269987100000435,
+      "train_seconds_with_allocation": 64.81455259999711
+    },
+    {
+      "fraction": 1.0,
+      "chars": 6215526,
+      "train_seconds": 65.51856179999595,
+      "val_subset": 1.1974363241195678,
+      "train_seconds_with_stale_diagnostics": 65.72896079999919,
+      "train_seconds_with_allocation": 71.25633079999534
+    }
+  ],
+  "curve": [
+    {
+      "fraction": 0.1,
+      "chars": 622592,
+      "train_seconds": 6.748278900002333,
+      "val_subset": 1.321064136505127,
+      "train_seconds_with_stale_diagnostics": 6.776763099998789,
+      "train_seconds_with_allocation": 12.486047900001722
+    },
+    {
+      "fraction": 0.2,
+      "chars": 1245184,
+      "train_seconds": 13.362205799996445,
+      "val_subset": 1.2834488821029664,
+      "train_seconds_with_stale_diagnostics": 13.408251399992878,
+      "train_seconds_with_allocation": 19.099974799995834
+    },
+    {
+      "fraction": 0.3,
+      "chars": 1867750,
+      "train_seconds": 19.825472999997146,
+      "val_subset": 1.254223690032959,
+      "train_seconds_with_stale_diagnostics": 19.897162799996295,
+      "train_seconds_with_allocation": 25.563241999996535
+    },
+    {
+      "fraction": 0.4,
+      "chars": 2486246,
+      "train_seconds": 26.281500599998253,
+      "val_subset": 1.2418610229492189,
+      "train_seconds_with_stale_diagnostics": 26.370864299999084,
+      "train_seconds_with_allocation": 32.01926959999764
+    },
+    {
+      "fraction": 0.5,
+      "chars": 3108838,
+      "train_seconds": 32.88449849999597,
+      "val_subset": 1.2427364635467528,
+      "train_seconds_with_stale_diagnostics": 32.99103849999665,
+      "train_seconds_with_allocation": 38.62226749999536
+    },
+    {
+      "fraction": 0.6,
+      "chars": 3731430,
+      "train_seconds": 39.41967119999754,
+      "val_subset": 1.2154791831970215,
+      "train_seconds_with_stale_diagnostics": 39.55196060000162,
+      "train_seconds_with_allocation": 45.15744019999693
+    },
+    {
+      "fraction": 0.7,
+      "chars": 4354022,
+      "train_seconds": 45.94720479999887,
+      "val_subset": 1.1979189519882203,
+      "train_seconds_with_stale_diagnostics": 46.09727700000076,
+      "train_seconds_with_allocation": 51.68497379999826
+    },
+    {
+      "fraction": 0.8,
+      "chars": 4972518,
+      "train_seconds": 52.35529709999901,
+      "val_subset": 1.2039549341201783,
+      "train_seconds_with_stale_diagnostics": 52.5227272000011,
+      "train_seconds_with_allocation": 58.093066099998396
+    },
+    {
+      "fraction": 0.9,
+      "chars": 5595110,
+      "train_seconds": 59.076783599997725,
+      "val_subset": 1.204541473388672,
+      "train_seconds_with_stale_diagnostics": 59.269987100000435,
+      "train_seconds_with_allocation": 64.81455259999711
+    },
+    {
+      "fraction": 1.0,
+      "chars": 6215526,
+      "train_seconds": 65.51856179999595,
+      "val_subset": 1.1974363241195678,
+      "train_seconds_with_stale_diagnostics": 65.72896079999919,
+      "train_seconds_with_allocation": 71.25633079999534
+    }
+  ],
+  "targets": {
+    "test": {
+      "value": 1.1712950946092606,
+      "threshold": 1.185,
+      "comparison": "<=",
+      "pass_observed": true,
+      "pass_full_run": true
+    },
+    "renamed": {
+      "value": 1.5450188283920288,
+      "threshold": 1.55,
+      "comparison": "<=",
+      "pass_observed": true,
+      "pass_full_run": true
+    },
+    "val": {
+      "value": 1.2769815154075623,
+      "threshold": 1.3869,
+      "comparison": "<=",
+      "pass_observed": true,
+      "pass_full_run": true
+    },
+    "train_seconds": {
+      "value": 71.25635229999534,
+      "threshold": 67.0,
+      "comparison": "<=",
+      "pass_observed": false,
+      "pass_full_run": false
+    },
+    "peak_allocated_mib": {
+      "value": 120.7001953125,
+      "threshold": 151.0,
+      "comparison": "<=",
+      "pass_observed": true,
+      "pass_full_run": true
+    },
+    "flops_per_char_estimate": {
+      "value": 28980,
+      "threshold": 7188480,
+      "comparison": "<=",
+      "pass_observed": true,
+      "pass_full_run": true
+    },
+    "iter40_bit_exact": {
+      "value": {
+        "val": 1.2769815154075623,
+        "test": 1.1712950946092606,
+        "renamed": 1.5450188283920288
+      },
+      "threshold": {
+        "val": 1.2769815154075623,
+        "test": 1.1712950946092606,
+        "renamed": 1.5450188283920288
+      },
+      "comparison": "==",
+      "pass_observed": true,
+      "pass_full_run": true
+    }
+  },
+  "checks": {
+    "causality": true,
+    "all_experts_causal": true,
+    "chunk1_exact_dict": true,
+    "deterministic_collision_writes": true,
+    "bounded_structures": true,
+    "no_autograd": true,
+    "local_finite_difference_max_error": 2.919482125669781e-11,
+    "normalized_key_renaming_invariance": false,
+    "storage": {
+      "compact_decode_monotonic": true,
+      "compact_quantization_max_relative_error": 0.02907671220600605,
+      "compact_increment_ensemble_max_relative_error": 0.02537989616394043,
+      "compact_max_decoded_count": 7329129.5,
+      "compact_error_note": "10% checks cover deterministic quantization and ensemble mean; individual Morris paths have stochastic error",
+      "dictionary_stream_variants": 6,
+      "same_chunk_doorkeeper": true,
+      "deterministic_storage_twice": true,
+      "frequency_eviction": true,
+      "count_aging": true,
+      "packed_bloom_concurrent_bits": true,
+      "resident_updates_survive_bloom_reset": true,
+      "tagged_matches_iter37": true,
+      "budget_includes_all_persistent_storage": true,
+      "associative_matches_iter38": {
+        "device": "cpu",
+        "random_stream_variants": 20,
+        "repeated_victim_fixture": true,
+        "large_slab_aging": true,
+        "oracle": "iter38.Buckets.write",
+        "bit_exact": true
+      },
+      "learner_row_sums": {
+        "stable_row_order": true,
+        "empty_and_single_updates": true,
+        "repeated_float_rows_bit_exact": true,
+        "iter39_bit_exact": true
+      },
+      "fused_matches_iter39": {
+        "device": "cpu",
+        "random_stream_variants": 40,
+        "oracle": "iter39.Buckets",
+        "bit_exact": true,
+        "eight_tables_repeated_victims": true,
+        "table_local_aging_all_codes": true,
+        "duplicate_resident_tags": true,
+        "frozen_reads": true
+      }
+    },
+    "configured_storage_causal": true,
+    "configured_eval_frozen": true,
+    "configured_outputs_deterministic_twice": true,
+    "configured_optimizer_deterministic_twice": true
+  },
+  "all_targets_pass": false,
+  "chars": 6215526,
+  "steps": 1518,
+  "novel_first_loss": 6.046634760491856,
+  "novel_repeat_loss": 2.6419743039629284,
+  "novel_counts": {
+    "first": 16980,
+    "repeat": 3266
+  },
+  "settings": {
+    "seed": 0,
+    "device": "cuda",
+    "mode": "tables",
+    "passes": 1,
+    "train_end": 6215526,
+    "val_start": 6215526,
+    "training_partition_chars": 6215526,
+    "chunk_size": 4096,
+    "input_window": 128,
+    "cpu_streamed_training": true,
+    "read_subchunk_targets": 512,
+    "cuda_graphs": true,
+    "sampling": "iter17/iter30 non-overlapping target windows; CPU randperm seed; row-major chunk reads then writes",
+    "evaluation_frozen": true,
+    "eval_windows": 2000,
+    "evaluation_functions": [
+      "iter5.evaluate (iter30 I.evaluate)",
+      "iter30.evaluate_subset",
+      "iter15.novel"
+    ],
+    "curve_subset": "first quarter of fixed validation windows; no respacing",
+    "curve_milestones": "first completed chunk at/after each 10% of targets",
+    "renaming": {
+      "fallback": false,
+      "fraction_chars_renamed": 0.08084519760985263,
+      "identifier_chars_fraction": 0.0832640278429661
+    },
+    "raw_orders": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      16,
+      32
+    ],
+    "alpha": 0.5,
+    "experts": [
+      "unigram",
+      "raw1",
+      "raw2",
+      "raw3",
+      "raw4",
+      "raw8",
+      "raw16",
+      "raw32",
+      "wordshape",
+      "clock1",
+      "clock3",
+      "copy1",
+      "copy2",
+      "copy4",
+      "copy8"
+    ],
+    "key_bits": [],
+    "key_inputs": "ASCII word chars share one symbol; six lags + three EMAs",
+    "key_loss": "own raw-character CE only; manual exact derivative",
+    "key_net_width": 0,
+    "key_lr": ".001 hold 75%, cosine to .0001",
+    "mixer_lr": 0.005,
+    "mixer": "local log-linear pool; char and pair rows; log count / max prob features",
+    "collision": "set associative; coalesce duplicates; deterministic W miss rounds; minimum count victim, ties lowest way; excess misses dropped",
+    "count_dtype": "uint8 exact to 32, then base-1.06 stochastic log; int16 fingerprint",
+    "storage": {
+      "storage": "compact",
+      "admit": "none",
+      "budget_mib": 64.0,
+      "ways": 4,
+      "age_chunks": 0,
+      "door_reset_chunks": 256,
+      "diag_every": 16,
+      "stale_every": 64
+    },
+    "copy_lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "probability_floor": 1e-06,
+    "nocopy": "replace copy experts with highest lexical expert; frozen mixer",
+    "surprise": "old exact bigram probability of observed input; thresholds 1/3; two iter10 three-event hashes",
+    "word_context": "normalized 8-char shape + current run length (cap 15) + delimiter",
+    "metric_note": "novel: iter15/iter30 aligned changed targets, maximal ASCII runs in a window; repeat requires an earlier complete run; README attributes earlier first/repeat observations to iter12",
+    "train_seconds_scope": "CPU batch assembly/transfers, scoring, local updates, memory writes and sampled storage diagnostics; excludes eval/setup/checks, separately timed stale unique diagnostics and separately reported allocation probe. Time target includes allocation.",
+    "memory_scope": "CUDA max allocated, separately sampled for train and eval; persistent bytes separate from transient working set"
+  }
+}

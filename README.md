@@ -103,7 +103,7 @@ What this says:
 - Caveats: one seed, 6.2M chars, and the test set is development data. Count models are known to be strong at small data, and backprop may close the gap at scale (Astra's review, `briefs/iter37_astra_out.md`). A data-scaling screen against matched and larger backprop models is the decisive next test.
 - Iter 36 (`roles.py`, identifiers keyed by causal role for the renamed gap) is built but not yet run.
 
-## Findings (iterations 38-40: compact associative storage, 64 MiB, one pass, seed 0)
+## Findings (iterations 38-41: compact associative storage, 64 MiB, one pass, seed 0)
 
 | Method | Test | Renamed | Val | Time | Peak memory |
 |---|---|---|---|---|---|
@@ -112,9 +112,11 @@ What this says:
 | **Iter 38: compact, no admission, no aging** | **1.171** | **1.545** | **1.277** | 193.3 s | **117 MiB** |
 | Iter 39: vectorized write + deterministic mixer sums | 1.171 | 1.545 | 1.277 | 221.9 s | 117 MiB |
 | Iter 40: one flat store for all tables, one gather and one write per chunk | 1.171 | 1.545 | 1.277 | 67.5 s (73.1 s with allocation) | 299 MiB |
+| **Iter 41: iter 40 with reads in blocks of 512, CUDA graph replay, reused buffers** | **1.171** | **1.545** | **1.277** | **65.5 s (71.3 s with allocation)** | **121 MiB** |
 
 - Compact no-aging storage beats BP (1.256 / 1.571) and 16x tables (1.177 / 1.544) on test, at 117 MiB versus 151 MiB.
 - Iter 39 is bit-exact with iter38. The write is 2x faster in a smoke run, but the full run is still 222 s. Per-table, launch-bound writes and reads dominate. Iter 39 also fixes a flaky determinism check: CUDA float `index_add_` atomics in the mixer gradients were replaced with a sorted segment reduce.
 - Iter 40 is bit-exact with iter 39 and 3.3x faster (67.5 s train). It is now faster than BP (79.4 s), but peak memory rose to 299 MiB because the fused read holds scratch for all 8 tables at once.
-- Next (iter 41): chunk the fused read and write over table groups with reused buffers to get peak <=151 MiB, and cut allocation and sync time so that time including allocation is <=67 s, keeping results bit-exact.
-- Scaling is untested. Every result here is at 6.2M chars. Count tables are known to be strong at small data, so a data-scaling screen against BP is still the decisive test.
+- Iter 41 is bit-exact with iter 40 and cuts peak memory to 121 MiB, under BP's 151 MiB. Time with allocation is 71.3 s, missing the 67 s target, but still faster than BP (79.4 s). It beats matched BP on test, renamed, time and memory.
+- Storage optimization stops here as the main direction (Astra, `briefs/iter41_astra_out.md`): cheaper storage cannot show anything about scaling.
+- Scaling is untested. Every result here is at 6.2M chars. Count tables are known to be strong at small data, so a data-scaling screen against BP is still the decisive test. Astra's suggested next step is shared-readout local learning (each module predicts through a frozen copy of the final decoder), tested at 6.2M and 30M chars locally, then on a 3M-30M parameter by 30M-300M char grid on Kaggle against tuned BP.
